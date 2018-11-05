@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Text, View } from 'react-native';
 
-import base from '../../../assets/base.scss'
+import base from '../../../styles/base.scss'
 
 type Props = {};
 export default class Review extends Component<Props> {

@@ -3,7 +3,7 @@ import { Text, Button, View } from 'react-native';
 import i18n from '../../i18n'
 import { capitalize } from "../../services/helpers";
 
-import base from '../../assets/base.scss'
+import base from '../../styles/base.scss'
 import styles from './styles.scss'
 
 import Hr from '../../components/Hr'
