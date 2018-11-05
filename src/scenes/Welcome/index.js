@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Text, Button, View } from 'react-native';
+import i18n from '../../i18n'
+import { capitalize } from "../../services/helpers";
 
 import base from '../../assets/base.scss'
 import styles from './styles.scss'
@@ -14,19 +16,20 @@ export default class Welcome extends Component<Props> {
     return (
       <View style={base.container}>
         <View>
-          <Text style={styles.welcome}>Welcome!</Text>
+          <Text style={styles.welcome}>{i18n.t( 'Welcome.welcome' )}!</Text>
           <Hr />
-          <Text style={styles.instructions}>Pick your dietary preferences by pressing <Text>Next</Text>.</Text>
+          <Text style={styles.instructions}>Pick your dietary preferences by
+            pressing <Text>{i18n.t( 'next' )}</Text>.</Text>
         </View>
         <View>
-          <Text>Pick language</Text>
+          <Text>{i18n.t( 'Welcome.pick-language' )}</Text>
         </View>
         <Button
-          title={"Next"}
+          title={i18n.t( 'next' ).capitalize()}
           onPress={() => {
             navigate( 'List' );
           }
-        } />
+          } />
       </View>
     );
   }

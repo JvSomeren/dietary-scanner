@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
+import RNLanguages from 'react-native-languages'
+import i18n from './i18n'
 
 import Welcome from './scenes/Welcome'
 import PreferencesNavigator from './scenes/Preferences'
@@ -66,6 +68,18 @@ const RootStack = createSwitchNavigator(
 
 type Props = {};
 export default class App extends Component<Props> {
+  componentWillMount() {
+    RNLanguages.addEventListener( 'change', this._onLanguagesChange );
+  }
+
+  componentWillUnmount() {
+    RNLanguages.removeEventListener( 'change', this._onLanguagesChange );
+  }
+
+  _onLanguagesChange = ( { language } ) => {
+    i18n.locale = language;
+  };
+
   render() {
     return <RootStack />
   }
