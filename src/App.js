@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
+import { Provider } from 'react-redux'
+import { store } from './store'
 import RNLanguages from 'react-native-languages'
 import i18n from './i18n'
 
@@ -81,6 +83,10 @@ export default class App extends Component<Props> {
   };
 
   render() {
-    return <RootStack />
+    return (
+      <Provider store={store}>
+        <RootStack />
+      </Provider>
+    )
   }
 }
