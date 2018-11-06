@@ -1,15 +1,26 @@
-import { EXAMPLE_DO } from "./types";
+import i18n from '../../i18n'
+import { settingsType } from "./types";
 
 const INITIAL_STATE = {
-
+  loading: false,
+  repeatUser: null,
+  language: null
 };
 
 export const settingsReducer = ( state = INITIAL_STATE, action ) => {
   switch ( action.type ) {
-    case EXAMPLE_DO:
-      const newState = state;
+    case settingsType.INIT:
+      return { ...state, loading: true };
+    case settingsType.INIT_SUCCESS:
+      return { ...action.payload.state, loading: false};
 
-      return newState;
+    case settingsType.UPDATE_LANGUAGE:
+      return { ...state, loading: true, language: action.data };
+    case settingsType.UPDATE_LANGUAGE_SUCCESS:
+      return { ...state, loading: false };
+    case settingsType.UPDATE_LANGUAGE_FAILURE :
+      return { ...action.payload.oldState, loading: false, error: action.payload.error };
+
     default:
       return state;
   }
