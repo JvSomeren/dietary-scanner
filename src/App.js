@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
 import { Provider } from 'react-redux'
 import { store } from './store'
+import { init, updateLanguage } from "./services/settings/service";
 import RNLanguages from 'react-native-languages'
 import i18n from './i18n'
 
+import Splash from './scenes/Splash'
 import Welcome from './scenes/Welcome'
 import PreferencesNavigator from './scenes/Preferences'
 
@@ -34,13 +36,22 @@ const MainStack = createBottomTabNavigator(
       screen: PreferencesNavigator,
       navigationOptions: () => ({
         header: null,
+        tabBarLabel: i18n.t( 'Preferences.tab' )
       }),
     },
     Scan: {
-      screen: PreferencesNavigator
+      screen: PreferencesNavigator,
+      navigationOptions: () => ({
+        header: null,
+        tabBarLabel: i18n.t( 'Scan.tab' )
+      }),
     },
     Settings: {
-      screen: PreferencesNavigator
+      screen: PreferencesNavigator,
+      navigationOptions: () => ({
+        header: null,
+        tabBarLabel: i18n.t( 'Settings.tab' )
+      }),
     }
   },
   {
@@ -50,6 +61,12 @@ const MainStack = createBottomTabNavigator(
 
 const RootStack = createSwitchNavigator(
   {
+    SplashScreen: {
+      screen: Splash,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
     WelcomeStack: {
       screen: WelcomeStack,
       navigationOptions: () => ({
@@ -64,9 +81,11 @@ const RootStack = createSwitchNavigator(
     }
   },
   {
-    initialRouteName: 'WelcomeStack',
+    initialRouteName: 'SplashScreen',
   }
 );
+
+store.dispatch( init() );
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -79,7 +98,7 @@ export default class App extends Component<Props> {
   }
 
   _onLanguagesChange = ( { language } ) => {
-    i18n.locale = language;
+    store.dispatch( updateLanguage( language ) );
   };
 
   render() {
