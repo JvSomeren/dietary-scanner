@@ -85,12 +85,12 @@ const RootStack = createSwitchNavigator(
   }
 );
 
-store.dispatch( init() );
-
 type Props = {};
 export default class App extends Component<Props> {
   componentWillMount() {
     RNLanguages.addEventListener( 'change', this._onLanguagesChange );
+
+    store.dispatch( init() );
   }
 
   componentWillUnmount() {

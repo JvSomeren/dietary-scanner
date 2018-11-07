@@ -1,4 +1,3 @@
-import i18n from '../../i18n'
 import { settingsType } from "./types";
 
 const INITIAL_STATE = {
