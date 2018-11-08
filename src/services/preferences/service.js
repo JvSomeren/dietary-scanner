@@ -34,3 +34,19 @@ export const removeDietaryPreference = ( preferenceId ) => {
     dispatch( PreferencesAction.removeDietaryPreferenceSuccess( {} ) );
   }
 };
+
+export const storeDietaryPreferences = () => {
+  return ( dispatch, getState ) => {
+    const state = getState();
+
+    dispatch( PreferencesAction.storeDietaryPreferences() );
+
+    _setItem( 'dietaryPreferences', JSON.stringify( state.preferences.dietaryPreferences ) )
+      .then( response => {
+        dispatch( PreferencesAction.storeDietaryPreferencesSuccess( response ) );
+      } )
+      .catch( error => {
+        dispatch( PreferencesAction.storeDietaryPreferencesFailure( error ) );
+      } )
+  }
+};

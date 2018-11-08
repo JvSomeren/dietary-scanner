@@ -25,6 +25,12 @@ export const preferencesReducer = ( state = INITIAL_STATE, action ) => {
     case preferencesType.REMOVE_DIETARY_PREFERENCE_FAILURE:
       return { ...action.payload.oldState, error: action.payload.error };
 
+    case preferencesType.STORE_DIETARY_PREFERENCES_FAILURE:
+      return { ...state, error: action.payload.error };
+
+    case preferencesType.STORE_DIETARY_PREFERENCES:
+    case preferencesType.STORE_DIETARY_PREFERENCES_SUCCESS:
+
     default:
       return state;
   }

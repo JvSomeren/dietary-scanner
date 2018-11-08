@@ -71,4 +71,29 @@ export class PreferencesAction {
       }
     }
   };
+
+  static storeDietaryPreferences = () => {
+    return {
+      type: preferencesType.REMOVE_DIETARY_PREFERENCE,
+      payload: {}
+    }
+  };
+
+  static storeDietaryPreferencesSuccess = ( response ) => {
+    return {
+      type: preferencesType.REMOVE_DIETARY_PREFERENCE_SUCCESS,
+      payload: {
+        response
+      }
+    }
+  };
+
+  static storeDietaryPreferencesFailure = ( response ) => {
+    return {
+      type: preferencesType.REMOVE_DIETARY_PREFERENCE_FAILURE,
+      payload: {
+        error: response
+      }
+    }
+  };
 }
