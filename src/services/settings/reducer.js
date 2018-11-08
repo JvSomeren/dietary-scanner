@@ -3,6 +3,7 @@ import { settingsType } from "./types";
 const INITIAL_STATE = {
   loading: false,
   repeatUser: null,
+  languages: [],
   language: null
 };
 
@@ -14,7 +15,7 @@ export const settingsReducer = ( state = INITIAL_STATE, action ) => {
       return { ...action.payload.state, loading: false};
 
     case settingsType.UPDATE_LANGUAGE:
-      return { ...state, loading: true, language: action.data };
+      return { ...state, loading: true, language: action.payload.data };
     case settingsType.UPDATE_LANGUAGE_SUCCESS:
       return { ...state, loading: false };
     case settingsType.UPDATE_LANGUAGE_FAILURE :

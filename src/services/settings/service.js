@@ -10,10 +10,13 @@ export const init = () => {
 
     _multiGet( keys )
       .then( response => {
-        let state = { ...response };
+        let state = response;
 
         state.repeatUser = state.repeatUser || false;
+        state.languages = Object.keys(i18n.translations);
         state.language = state.language || i18n.locale;
+
+        i18n.locale = state.language;
 
         dispatch( SettingsAction.initSuccess( state ) );
 
