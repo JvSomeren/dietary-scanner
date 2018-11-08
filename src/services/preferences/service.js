@@ -1,19 +1,26 @@
 import { PreferencesAction } from "./actions";
 import { getAvailableAllergies } from "./api";
+import { _getItem, _setItem } from "../AsyncStorage";
 
 export const init = () => {
   return ( dispatch ) => {
     dispatch( PreferencesAction.init() );
 
-    getAvailableAllergies()
-      .then( response => {
-        const data = { availableAllergies: response };
+    Promise.all( [
+      getAvailableAllergies(),
+      _getItem( 'dietaryPreferences' )
+    ] )
+      .then( responses => {
+        const data = {
+          availableAllergies: responses[ 0 ],
+          dietaryPreferences: !!responses[ 1 ] ? JSON.parse( responses[ 1 ] ) : []
+        };
 
         dispatch( PreferencesAction.initSuccess( data ) );
       } )
       .catch( error => {
-        throw(error);
-      } );
+        console.error( error );
+      } )
   }
 };
 
