@@ -14,12 +14,19 @@ export const settingsReducer = ( state = INITIAL_STATE, action ) => {
     case settingsType.INIT_SUCCESS:
       return { ...action.payload.state, loading: false};
 
+    case settingsType.SET_REPEAT_USER:
+      return { ...state, repeatUser: true };
+    case settingsType.SET_REPEAT_USER_FAILURE:
+      return { ...action.payload.oldState, error: error.payload.error };
+
     case settingsType.UPDATE_LANGUAGE:
       return { ...state, loading: true, language: action.payload.data };
     case settingsType.UPDATE_LANGUAGE_SUCCESS:
       return { ...state, loading: false };
     case settingsType.UPDATE_LANGUAGE_FAILURE :
       return { ...action.payload.oldState, loading: false, error: action.payload.error };
+
+    case settingsType.SET_REPEAT_USER_SUCCESS:
 
     default:
       return state;

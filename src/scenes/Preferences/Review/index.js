@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { Divider, List as RNEList, ListItem, Text as RNEText } from "react-native-elements";
 import i18n from "../../../i18n";
 import { storeDietaryPreferences } from "../../../services/preferences/service";
+import { setRepeatUser } from "../../../services/settings/service";
 
 type Props = {};
 
@@ -18,6 +19,9 @@ class Review extends Component<Props> {
     const { navigate } = this.props.navigation;
 
     this.props.storeDietaryPreferences();
+
+    if ( !this.props.repeatUser )
+      this.props.setRepeatUser();
 
     navigate( 'MainStack' );
   };
@@ -69,14 +73,16 @@ class Review extends Component<Props> {
 
 const mapStateToProps = state => {
   return {
+    repeatUser: state.settings.repeatUser,
     dietaryPreferences: state.preferences.dietaryPreferences
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    setRepeatUser: () => dispatch( setRepeatUser() ),
     storeDietaryPreferences: () => dispatch( storeDietaryPreferences() )
-}
+  }
 };
 
 export default connect(

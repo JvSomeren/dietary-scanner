@@ -12,8 +12,8 @@ export const init = () => {
       .then( response => {
         let state = response;
 
-        state.repeatUser = state.repeatUser || false;
-        state.languages = Object.keys(i18n.translations);
+        state.repeatUser = ( state.repeatUser === 'true' );
+        state.languages = Object.keys( i18n.translations );
         state.language = state.language || i18n.locale;
 
         i18n.locale = state.language;
@@ -25,6 +25,22 @@ export const init = () => {
       } )
       .catch( error => {
         throw(error);
+      } );
+  }
+};
+
+export const setRepeatUser = () => {
+  return ( dispatch, getState ) => {
+    const oldState = getState();
+
+    dispatch( SettingsAction.setRepeatUser() );
+
+    _setItem( 'repeatUser', 'true' )
+      .then( response => {
+        dispatch( SettingsAction.setRepeatUserSuccess( response ) );
+      } )
+      .catch( error => {
+        dispatch( SettingsAction.setRepeatUserFailure( error, oldState ) );
       } );
   }
 };

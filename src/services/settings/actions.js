@@ -16,6 +16,31 @@ export class SettingsAction {
     }
   };
 
+  static setRepeatUser = () => {
+    return {
+      type: settingsType.SET_REPEAT_USER
+    }
+  };
+
+  static setRepeatUserSuccess = ( response ) => {
+    return {
+      type: settingsType.SET_REPEAT_USER_SUCCESS,
+      payload: {
+        response
+      }
+    }
+  };
+
+  static setRepeatUserFailure = ( response, oldState ) => {
+    return {
+      type: settingsType.SET_REPEAT_USER_FAILURE,
+      payload: {
+        error: response,
+        oldState
+      }
+    }
+  };
+
   static updateLanguage = ( language ) => {
     return {
       type: settingsType.UPDATE_LANGUAGE,
