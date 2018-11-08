@@ -3,7 +3,7 @@ import { Text, Button, View } from 'react-native';
 import { List, ListItem, Divider } from 'react-native-elements';
 import { connect } from "react-redux";
 import i18n from '../../i18n'
-import { capitalize, toListArray } from "../../services/helpers";
+import { toListArray } from "../../services/helpers";
 import { updateLanguage } from "../../services/settings/service";
 
 import base from '../../styles/base.scss'
@@ -13,7 +13,7 @@ type Props = {};
 
 class Welcome extends Component<Props> {
   _onPressItem = ( language ) => {
-    if( language !== i18n.locale )
+    if ( language !== i18n.locale )
       this.props.updateLanguage( language );
   };
 
@@ -32,7 +32,7 @@ class Welcome extends Component<Props> {
       <View style={base.container}>
         <View style={base.flexCenter}>
           <Text style={styles.welcome}>{i18n.t( 'Welcome.welcome' )}!</Text>
-          <Divider style={styles.divider} />
+          <Divider style={base.divider} />
           <Text style={styles.instructions}>Pick your dietary preferences by
             pressing <Text>{i18n.t( 'next' )}</Text>.</Text>
         </View>
@@ -66,9 +66,7 @@ class Welcome extends Component<Props> {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateLanguage: ( language ) =>
-      dispatch( updateLanguage( language ) )
-
+    updateLanguage: ( language ) => dispatch( updateLanguage( language ) )
   }
 };
 

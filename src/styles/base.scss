@@ -5,6 +5,21 @@
   background-color: #F5FCFF;
 }
 
+.horizontalContainer {
+  @extend .container;
+
+  flex-direction: row;
+  align-self: stretch;
+}
+
+.divider {
+  margin-bottom: 10px;
+}
+
+.textCenter {
+  text-align: center;
+}
+
 .flex {
   flex: 1;
 }

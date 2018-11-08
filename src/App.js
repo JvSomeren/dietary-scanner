@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
 import { Provider } from 'react-redux'
 import { store } from './store'
-import { init, updateLanguage } from "./services/settings/service";
+import { updateLanguage, init as settingsInit } from "./services/settings/service";
+import { init as preferencesInit } from "./services/preferences/service";
 import RNLanguages from 'react-native-languages'
 import i18n from './i18n'
 
@@ -90,7 +91,8 @@ export default class App extends Component<Props> {
   componentWillMount() {
     RNLanguages.addEventListener( 'change', this._onLanguagesChange );
 
-    store.dispatch( init() );
+    store.dispatch( settingsInit() ); // TODO: move this and do smarter initialize
+    store.dispatch( preferencesInit() );
   }
 
   componentWillUnmount() {
