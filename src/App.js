@@ -10,9 +10,10 @@ import i18n from './i18n'
 import Splash from './scenes/Splash'
 import Welcome from './scenes/Welcome'
 import PreferencesNavigator from './scenes/Preferences'
-import Settings from './scenes/Settings'
+import ScanNavigator from "./scenes/Scan"
+import SettingsNavigator from './scenes/Settings'
 
-const WelcomeStack = createSwitchNavigator(
+const WelcomeNavigator = createSwitchNavigator(
   {
     Welcome: {
       screen: Welcome,
@@ -32,7 +33,7 @@ const WelcomeStack = createSwitchNavigator(
   }
 );
 
-const MainStack = createBottomTabNavigator(
+const MainNavigator = createBottomTabNavigator(
   {
     Preferences: {
       screen: PreferencesNavigator,
@@ -42,14 +43,14 @@ const MainStack = createBottomTabNavigator(
       }),
     },
     Scan: {
-      screen: PreferencesNavigator,
+      screen: ScanNavigator,
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Scan.tab' )
       }),
     },
     Settings: {
-      screen: Settings,
+      screen: SettingsNavigator,
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Settings.tab' )
@@ -70,13 +71,13 @@ const RootStack = createSwitchNavigator(
       }),
     },
     WelcomeStack: {
-      screen: WelcomeStack,
+      screen: WelcomeNavigator,
       navigationOptions: () => ({
         header: null,
       }),
     },
     MainStack: {
-      screen: MainStack,
+      screen: MainNavigator,
       navigationOptions: () => ({
         header: null,
       }),
