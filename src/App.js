@@ -10,6 +10,7 @@ import i18n from './i18n'
 import Splash from './scenes/Splash'
 import Welcome from './scenes/Welcome'
 import PreferencesNavigator from './scenes/Preferences'
+import Settings from './scenes/Settings'
 
 const WelcomeStack = createSwitchNavigator(
   {
@@ -48,7 +49,7 @@ const MainStack = createBottomTabNavigator(
       }),
     },
     Settings: {
-      screen: PreferencesNavigator,
+      screen: Settings,
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Settings.tab' )
