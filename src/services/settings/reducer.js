@@ -14,6 +14,10 @@ export const settingsReducer = ( state = INITIAL_STATE, action ) => {
     case settingsType.INIT_SUCCESS:
       return { ...action.payload.state, loading: false};
 
+    case settingsType.RESET_ALL:
+      return { ...INITIAL_STATE, loading: true };
+
+
     case settingsType.SET_REPEAT_USER:
       return { ...state, repeatUser: true };
     case settingsType.SET_REPEAT_USER_FAILURE:
@@ -21,8 +25,12 @@ export const settingsReducer = ( state = INITIAL_STATE, action ) => {
 
     case settingsType.UPDATE_LANGUAGE:
       return { ...state, loading: true, language: action.payload.data };
+
+    case settingsType.RESET_ALL_SUCCESS:
     case settingsType.UPDATE_LANGUAGE_SUCCESS:
       return { ...state, loading: false };
+
+    case settingsType.RESET_ALL_FAILURE:
     case settingsType.UPDATE_LANGUAGE_FAILURE :
       return { ...action.payload.oldState, loading: false, error: action.payload.error };
 

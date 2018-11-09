@@ -1,4 +1,4 @@
-import { _multiGet, _setItem } from "../AsyncStorage";
+import { _getAllKeys, _multiGet, _multiRemove, _setItem } from "../AsyncStorage";
 import { SettingsAction } from "./actions";
 import i18n from "../../i18n";
 
@@ -12,7 +12,7 @@ export const init = () => {
       .then( response => {
         let state = response;
 
-        state.repeatUser = ( state.repeatUser === 'true' );
+        state.repeatUser = (state.repeatUser === 'true');
         state.languages = Object.keys( i18n.translations );
         state.language = state.language || i18n.locale;
 
@@ -25,6 +25,28 @@ export const init = () => {
       } )
       .catch( error => {
         throw(error);
+      } );
+  }
+};
+
+export const resetAll = () => {
+  return ( dispatch, getState ) => {
+    const oldState = getState();
+
+    dispatch( SettingsAction.resetAll() );
+
+    _getAllKeys()
+      .then( response => {
+        _multiRemove( response )
+          .then( response => {
+            dispatch( SettingsAction.resetAllSuccess( response ) );
+          } )
+          .catch( error => {
+            dispatch( SettingsAction.resetAllFailure( error, oldState ) );
+          } );
+      } )
+      .catch( error => {
+        dispatch( SettingsAction.resetAllFailure( error, oldState ) );
       } );
   }
 };
