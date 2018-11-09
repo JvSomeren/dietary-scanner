@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Text, Button, View } from 'react-native';
-import { List, ListItem, Divider } from 'react-native-elements';
+import { List, Divider } from 'react-native-elements';
 import { connect } from "react-redux";
 import i18n from '../../i18n'
-import { toListArray } from "../../services/helpers";
 import { updateLanguage } from "../../services/settings/service";
 
 import base from '../../styles/base.scss'
