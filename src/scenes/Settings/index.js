@@ -1,41 +1,27 @@
-import React, { Component } from 'react';
-import { View, Button } from 'react-native';
-import { connect } from "react-redux";
+import { createStackNavigator } from "react-navigation";
 
-import base from '../../styles/base.scss'
+import SettingsList from './List'
+import LanguageList from '../../components/LanguageList'
 import i18n from "../../i18n";
-import { resetAll } from "../../services/settings/service";
 
-type Props = {};
-
-class Settings extends Component<Props> {
-  constructor( props ) {
-    super( props );
+const SettingsNavigator = createStackNavigator(
+  {
+    SettingsList: {
+      screen: SettingsList,
+      navigationOptions: ( { navigation } ) => ({
+        title: i18n.t( 'Settings.settings' ).capitalize()
+      })
+    },
+    SettingsLanguage: {
+      screen: LanguageList,
+      navigationOptions: ( { navigation } ) => ({
+        title: i18n.t( 'Settings.language' ).capitalize()
+      })
+    }
+  },
+  {
+    initialRouteName: 'SettingsList'
   }
+);
 
-  render() {
-    const { navigate } = this.props.navigation;
-
-    return (
-      <View style={base.container}>
-        <Button
-          title={"Reset all"}
-          onPress={() => {
-            this.props.resetAll();
-            // navigate( 'SplashScreen' );
-          }} />
-      </View>
-    );
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    resetAll: () => dispatch( resetAll() )
-  }
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)( Settings );
+export default SettingsNavigator;
