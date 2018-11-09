@@ -31,6 +31,16 @@ export const _removeItem = async ( key: String ) => {
   }
 };
 
+export const _getAllKeys = async () => {
+  try {
+    const keys = await AsyncStorage.getAllKeys();
+
+    return keys;
+  } catch ( error ) {
+    console.log( error );
+  }
+};
+
 export const _multiGet = async ( keys: Array ) => {
   try {
     const arr = await AsyncStorage.multiGet( keys );
