@@ -3,6 +3,8 @@ import thunk from 'redux-thunk'
 import barcodesReducer from './services/barcodes'
 import preferencesReducer from './services/preferences'
 import settingsReducer from './services/settings'
+import { init as settingsInit } from "./services/settings/service";
+import { init as preferencesInit } from "./services/preferences/service";
 
 
 export const store = createStore(
@@ -13,3 +15,10 @@ export const store = createStore(
   } ),
   applyMiddleware( thunk )
 );
+
+export const initStore = () => {
+  return ( dispatch ) => {
+    dispatch( settingsInit() );
+    dispatch( preferencesInit() );
+  }
+};
