@@ -53,3 +53,11 @@ export const _multiGet = async ( keys: Array ) => {
     console.error( error );
   }
 };
+
+export const _multiRemove = async ( keys: Array ) => {
+  try {
+    await AsyncStorage.multiRemove( keys );
+  } catch ( error ) {
+    console.error( error );
+  }
+};
