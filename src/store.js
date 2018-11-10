@@ -1,6 +1,5 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk'
-import barcodesReducer from './services/barcodes'
 import preferencesReducer from './services/preferences'
 // import scanReducer from './services/scan'
 import settingsReducer from './services/settings'
@@ -10,7 +9,6 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 
 export const store = createStore(
   combineReducers( {
-    barcodes: barcodesReducer,
     preferences: preferencesReducer,
     // scan: scanReducer,
     settings: settingsReducer
