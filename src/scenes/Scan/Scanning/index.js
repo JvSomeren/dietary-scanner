@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { withNavigationFocus } from "react-navigation";
 import { RNCamera } from "react-native-camera";
 import i18n from "../../../i18n";
-import { Icon } from "react-native-elements";
+import { Icon, Text } from "react-native-elements";
+import { Vibration } from "react-native";
 
 import base from '../../../styles/base.scss'
 import styles from './styles'
@@ -35,22 +36,37 @@ class Scanning extends Component<Props> {
     ]
   };
 
-  toggleFacing() {
+  close = () => {
+    const { navigate } = this.props.navigation;
+
+    navigate( 'ScanBase' );
+  };
+
+  toggleFacing = () => {
     this.setState( {
       type: this.state.type.state === 'back' ?
         { state: 'front', icon: 'camera-front' } :
         { state: 'back', icon: 'camera-rear' }
     } );
-  }
+  };
 
-  toggleFlash() {
+  toggleFlash = () => {
     this.setState( {
       flash: {
         state: flashModeOrder[ this.state.flash.state ],
         icon: flashModeOrder[ this.state.flash.state ] === 'off' ? 'flashlight-off' : 'flashlight'
       }
     } );
-  }
+  };
+
+  _onBarCodeRead = ( { data, rawData, type } ) => {
+    const { navigate } = this.props.navigation;
+
+    Vibration.vibrate(500);
+    console.log( data, rawData, type );
+
+    navigate( 'Feedback' );
+  };
 
   render() {
     const { isFocused } = this.props;
@@ -67,19 +83,16 @@ class Scanning extends Component<Props> {
           flashMode={this.state.flash.state}
           permissionDialogTitle={i18n.t( 'Scan.permission.title' )}
           permissionDialogMessage={i18n.t( 'Scan.permission.message' )}
-          onBarCodeRead={( { data, rawData, type } ) => {
-            console.log( data, rawData, type );
-          }}
+          onBarCodeRead={this._onBarCodeRead}
           barCodeTypes={this.state.barCodeTypes}
         >
-          <View
-            style={{
-              flex: 0.5,
-              backgroundColor: 'transparent',
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-            }}
-          >
+          <View style={[ styles.outlineOuter, styles.buttonsAlignment ]}>
+            <TouchableOpacity style={[ styles.flipButton, { marginRight: 'auto' } ]} onPress={this.close.bind( this )}>
+              <Icon
+                name={"close"}
+                color={"#fff"}
+              />
+            </TouchableOpacity>
             <TouchableOpacity style={styles.flipButton} onPress={this.toggleFacing.bind( this )}>
               <Icon
                 name={this.state.type.icon}
@@ -94,6 +107,20 @@ class Scanning extends Component<Props> {
               />
             </TouchableOpacity>
           </View>
+
+          <View style={styles.containerInner}>
+            <View style={styles.outlineInner}>
+            </View>
+            <View style={styles.scanInner}>
+              <View style={styles.scanLine}>
+              </View>
+            </View>
+            <View style={styles.outlineInner}>
+            </View>
+          </View>
+
+          <View style={styles.outlineOuter}>
+          </View>
         </RNCamera>
         }
       </View>
@@ -103,15 +130,11 @@ class Scanning extends Component<Props> {
 
 
 const mapStateToProps = state => {
-  return {
-
-  }
+  return {}
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-
-  }
+  return {}
 };
 
 export default connect(
