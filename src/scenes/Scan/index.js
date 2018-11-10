@@ -2,6 +2,7 @@ import { createSwitchNavigator } from "react-navigation";
 
 import Base from './Base'
 import Scanning from './Scanning'
+import Feedback from './Feedback'
 
 const ScanNavigator = createSwitchNavigator(
   {
@@ -10,6 +11,9 @@ const ScanNavigator = createSwitchNavigator(
     },
     Scanning: {
       screen: Scanning
+    },
+    Feedback: {
+      screen: Feedback
     }
   },
   {
