@@ -48,7 +48,7 @@ export const storeDietaryPreferences = () => {
 
     dispatch( PreferencesAction.storeDietaryPreferences() );
 
-    _setItem( 'dietaryPreferences', JSON.stringify( state.preferences.dietaryPreferences ) )
+    _setItem( 'dietaryPreferences', JSON.stringify( state.dietaryPreferences ) )
       .then( response => {
         dispatch( PreferencesAction.storeDietaryPreferencesSuccess( response ) );
       } )

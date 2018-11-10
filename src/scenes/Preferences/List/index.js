@@ -5,6 +5,7 @@ import base from '../../../styles/base.scss'
 import i18n from "../../../i18n";
 import { Divider, List as RNEList, ListItem, Text as RNEText } from "react-native-elements";
 import { addDietaryPreference, removeDietaryPreference } from "../../../services/preferences/service";
+import { setRepeatUser } from "../../../services/settings/service";
 
 
 type Props = {};
@@ -23,6 +24,15 @@ class List extends Component<Props> {
 
   _leftIcon = ( item ) => {
     return this.props.dietaryPreferences.filter( p => p.id === item.id ).length ? { name: 'remove' } : { name: 'add' };
+  };
+
+  _skip = () => {
+    const { navigate } = this.props.navigation;
+
+    if ( !this.props.repeatUser )
+      this.props.setRepeatUser();
+
+    navigate( 'MainStack' );
   };
 
   render() {
@@ -52,18 +62,20 @@ class List extends Component<Props> {
         </RNEList>
 
         <View style={[ base.flexCenter, base.horizontalContainer ]}>
+          {!this.props.repeatUser &&
           <Button
             title={"Skip"}
             onPress={() => {
-              navigate( 'MainStack' ); // TODO: add alert
-            }
-            } />
+              this._skip(); // TODO: add alert
+            }}
+          />
+          }
           <Button
             title={"Review"}
             onPress={() => {
               navigate( 'Review' );
-            }
-            } />
+            }}
+          />
         </View>
       </View>
     );
@@ -74,14 +86,16 @@ const mapStateToProps = state => {
   return {
     loading: state.preferences.loading,
     availableAllergies: state.preferences.availableAllergies,
-    dietaryPreferences: state.preferences.dietaryPreferences
+    dietaryPreferences: state.preferences.dietaryPreferences,
+    repeatUser: state.settings.repeatUser
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     addDietaryPreference: ( preference ) => dispatch( addDietaryPreference( preference ) ),
-    removeDietaryPreference: ( preferenceId ) => dispatch( removeDietaryPreference( preferenceId ) )
+    removeDietaryPreference: ( preferenceId ) => dispatch( removeDietaryPreference( preferenceId ) ),
+    setRepeatUser: () => dispatch( setRepeatUser() )
   }
 };
 
