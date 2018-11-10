@@ -31,7 +31,7 @@ export const init = () => {
 
 export const resetAll = () => {
   return ( dispatch, getState ) => {
-    const oldState = getState();
+    const oldState = getState().settings;
 
     dispatch( SettingsAction.resetAll() );
 
@@ -53,7 +53,7 @@ export const resetAll = () => {
 
 export const setRepeatUser = () => {
   return ( dispatch, getState ) => {
-    const oldState = getState();
+    const oldState = getState().settings;
 
     dispatch( SettingsAction.setRepeatUser() );
 
@@ -69,7 +69,7 @@ export const setRepeatUser = () => {
 
 export const updateLanguage = ( language ) => {
   return ( dispatch, getState ) => {
-    const oldState = getState();
+    const oldState = getState().settings;
 
     dispatch( SettingsAction.updateLanguage( language ) );
 
