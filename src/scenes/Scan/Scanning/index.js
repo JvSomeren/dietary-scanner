@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { withNavigationFocus } from "react-navigation";
 import { RNCamera } from "react-native-camera";
 import i18n from "../../../i18n";
-import { Icon, Text } from "react-native-elements";
+import { Icon } from "react-native-elements";
 import { Vibration } from "react-native";
+import { getProduct } from "../../../services/scan/service";
 
 import base from '../../../styles/base.scss'
 import styles from './styles'
@@ -62,8 +63,8 @@ class Scanning extends Component<Props> {
   _onBarCodeRead = ( { data, rawData, type } ) => {
     const { navigate } = this.props.navigation;
 
-    Vibration.vibrate(500);
-    console.log( data, rawData, type );
+    Vibration.vibrate( 100 );
+    this.props.getProduct( type, data );
 
     navigate( 'Feedback' );
   };
@@ -134,7 +135,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    getProduct: ( barCodeType, productId ) => dispatch( getProduct( barCodeType, productId ) )
+  }
 };
 
 export default connect(
