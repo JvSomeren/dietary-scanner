@@ -74,14 +74,14 @@ export class PreferencesAction {
 
   static storeDietaryPreferences = () => {
     return {
-      type: preferencesType.REMOVE_DIETARY_PREFERENCE,
+      type: preferencesType.STORE_DIETARY_PREFERENCES,
       payload: {}
     }
   };
 
   static storeDietaryPreferencesSuccess = ( response ) => {
     return {
-      type: preferencesType.REMOVE_DIETARY_PREFERENCE_SUCCESS,
+      type: preferencesType.STORE_DIETARY_PREFERENCES_SUCCESS,
       payload: {
         response
       }
@@ -90,7 +90,7 @@ export class PreferencesAction {
 
   static storeDietaryPreferencesFailure = ( response ) => {
     return {
-      type: preferencesType.REMOVE_DIETARY_PREFERENCE_FAILURE,
+      type: preferencesType.STORE_DIETARY_PREFERENCES_FAILURE,
       payload: {
         error: response
       }
