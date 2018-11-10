@@ -1,7 +1,7 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk'
 import preferencesReducer from './services/preferences'
-// import scanReducer from './services/scan'
+import scanReducer from './services/scan'
 import settingsReducer from './services/settings'
 import { init as settingsInit } from "./services/settings/service";
 import { init as preferencesInit } from "./services/preferences/service";
@@ -10,7 +10,7 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 export const store = createStore(
   combineReducers( {
     preferences: preferencesReducer,
-    // scan: scanReducer,
+    scan: scanReducer,
     settings: settingsReducer
   } ),
   composeWithDevTools(
