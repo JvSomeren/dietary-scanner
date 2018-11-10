@@ -12,6 +12,7 @@ import Welcome from './scenes/Welcome'
 import PreferencesNavigator from './scenes/Preferences'
 import ScanNavigator from "./scenes/Scan"
 import SettingsNavigator from './scenes/Settings'
+import { Icon } from "react-native-elements";
 
 const WelcomeNavigator = createSwitchNavigator(
   {
@@ -39,26 +40,29 @@ const MainNavigator = createBottomTabNavigator(
       screen: PreferencesNavigator,
       navigationOptions: () => ({
         header: null,
-        tabBarLabel: i18n.t( 'Preferences.tab' )
+        tabBarLabel: i18n.t( 'Preferences.tab' ),
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"food-fork-drink"} color={tintColor} type={'material-community'} />
       }),
     },
     Scan: {
       screen: ScanNavigator,
       navigationOptions: () => ({
         header: null,
-        tabBarLabel: i18n.t( 'Scan.tab' )
+        tabBarLabel: i18n.t( 'Scan.tab' ),
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"barcode-scan"} color={tintColor} type={'material-community'} />
       }),
     },
     Settings: {
       screen: SettingsNavigator,
       navigationOptions: () => ({
         header: null,
-        tabBarLabel: i18n.t( 'Settings.tab' )
+        tabBarLabel: i18n.t( 'Settings.tab' ),
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"settings"} color={tintColor} type={'material-community'} />
       }),
     }
   },
   {
-    initialRouteName: 'Scan'
+    initialRouteName: 'Scan',
   }
 );
 
