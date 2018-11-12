@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 import { connect } from "react-redux";
 
 import base from '../../../styles/base.scss'
 import i18n from "../../../i18n";
-import { resetAll } from "../../../services/settings/service";
 import { List, ListItem } from "react-native-elements";
 
 type Props = {};
@@ -23,7 +22,7 @@ class SettingsList extends Component<Props> {
   render() {
     const list = [
       { name: 'language', navigationTargetName: 'SettingsLanguage' },
-      { name: 'reset all', navigationTargetName: '' }
+      { name: 'reset all', navigationTargetName: 'SettingsResetAll' }
     ];
 
     return (
@@ -39,13 +38,6 @@ class SettingsList extends Component<Props> {
             ) )
           }
         </List>
-
-        <Button
-          title={"Reset all"}
-          onPress={() => {
-            this.props.resetAll();
-            // navigate( 'SplashScreen' );
-          }} />
       </View>
     );
   }
@@ -57,13 +49,6 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    resetAll: () => dispatch( resetAll() )
-  }
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )( SettingsList );
