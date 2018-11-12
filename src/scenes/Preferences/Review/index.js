@@ -23,7 +23,7 @@ class Review extends Component<Props> {
     if ( !this.props.repeatUser )
       this.props.setRepeatUser();
 
-    navigate( 'Scan' );
+    navigate( 'Scanning' );
   };
 
   render() {
