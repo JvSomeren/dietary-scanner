@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import base from '../../../styles/base.scss'
 import i18n from "../../../i18n";
 import { Divider, List as RNEList, ListItem, Text as RNEText } from "react-native-elements";
-import { addDietaryPreference, removeDietaryPreference } from "../../../services/preferences/service";
+import { setTmpDietaryPreferences } from "../../../services/preferences/service";
 import { setRepeatUser } from "../../../services/settings/service";
 
 
@@ -13,6 +13,10 @@ type Props = {};
 class List extends Component<Props> {
   constructor( props ) {
     super( props );
+
+    this.state = {
+      dietaryPreferences: this.props.dietaryPreferences
+    };
   }
 
   _bold = ( content ) => {
@@ -21,21 +25,31 @@ class List extends Component<Props> {
 
   _title = ( item ) => {
     const ingredientEle = this._bold( i18n.t( 'Preferences.allergies.' + item.name ).capitalize() );
-    const prefixText = this.props.dietaryPreferences.filter( p => p.id === item.id ).length ?
+    const prefixText = this.state.dietaryPreferences.filter( p => p.id === item.id ).length ?
       <Text>{i18n.t( 'Preferences.i do' ).capitalize()} {this._bold( i18n.t( 'Preferences.not' ) )} {i18n.t( 'Preferences.want' )}</Text> :
       i18n.t( 'Preferences.i do want' ).capitalize();
     return <Text>{prefixText} {ingredientEle}</Text>;
   };
 
   _leftIcon = ( item ) => {
-    return this.props.dietaryPreferences.filter( p => p.id === item.id ).length ? { name: 'remove' } : { name: 'add' };
+    return this.state.dietaryPreferences.filter( p => p.id === item.id ).length ? { name: 'remove' } : { name: 'add' };
   };
 
   _onPress = ( item ) => {
-    if ( this.props.dietaryPreferences.filter( p => p.id === item.id ).length )
-      this.props.removeDietaryPreference( item.id );
-    else
-      this.props.addDietaryPreference( item );
+    if ( this.state.dietaryPreferences.filter( p => p.id === item.id ).length ) {
+      const preferences = this.state.dietaryPreferences.filter( p => p.id !== item.id );
+
+      this.setState( {
+        ...this.state,
+        dietaryPreferences: [ ...preferences ]
+      } );
+
+    } else {
+      this.setState( {
+        ...this.state,
+        dietaryPreferences: [ ...this.state.dietaryPreferences, item ]
+      } );
+    }
   };
 
   _skip = () => {
@@ -85,6 +99,7 @@ class List extends Component<Props> {
           <Button
             title={i18n.t( 'Preferences.review' ).capitalize()}
             onPress={() => {
+              this.props.setTmpDietaryPreferences( this.state.dietaryPreferences );
               navigate( 'Review' );
             }}
           />
@@ -105,9 +120,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addDietaryPreference: ( preference ) => dispatch( addDietaryPreference( preference ) ),
-    removeDietaryPreference: ( preferenceId ) => dispatch( removeDietaryPreference( preferenceId ) ),
-    setRepeatUser: () => dispatch( setRepeatUser() )
+    setRepeatUser: () => dispatch( setRepeatUser() ),
+    setTmpDietaryPreferences: ( dietaryPreferences ) => dispatch( setTmpDietaryPreferences( dietaryPreferences ) )
   }
 };
 

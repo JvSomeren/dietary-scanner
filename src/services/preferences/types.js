@@ -11,6 +11,10 @@ export const preferencesType = {
   REMOVE_DIETARY_PREFERENCE_SUCCESS: `${ACTION_PREFIX} Remove dietary preference success`,
   REMOVE_DIETARY_PREFERENCE_FAILURE: `${ACTION_PREFIX} Remove dietary preference failure`,
 
+  SET_TMP_DIETARY_PREFERENCES: `${ACTION_PREFIX} Set tmp dietary preferences`,
+  SET_TMP_DIETARY_PREFERENCES_SUCCESS: `${ACTION_PREFIX} Set tmp dietary preferences success`,
+  SET_TMP_DIETARY_PREFERENCES_FAILURE: `${ACTION_PREFIX} Set tmp dietary preferences failure`,
+
   STORE_DIETARY_PREFERENCES: `${ACTION_PREFIX} Store dietary preferences`,
   STORE_DIETARY_PREFERENCES_SUCCESS: `${ACTION_PREFIX} Store dietary preferences success`,
   STORE_DIETARY_PREFERENCES_FAILURE: `${ACTION_PREFIX} Store dietary preferences failure`,

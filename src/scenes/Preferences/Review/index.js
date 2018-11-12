@@ -37,10 +37,10 @@ class Review extends Component<Props> {
           <Text>{i18n.t( 'Preferences.confirm by' ).capitalize()} <Text>{i18n.t( 'confirm' )}</Text>.</Text>
         </View>
 
-        {this.props.dietaryPreferences.length ? (
+        {this.props.dietaryPreferencesTmp.length ? (
           <RNEList containerStyle={[ base.flex, base.stretch ]}>
             {
-              this.props.dietaryPreferences.map( ( item ) => (
+              this.props.dietaryPreferencesTmp.map( ( item ) => (
                 <ListItem
                   key={item.id}
                   title={i18n.t( 'Preferences.allergies.' + item.name ).capitalize()}
@@ -74,7 +74,7 @@ class Review extends Component<Props> {
 const mapStateToProps = state => {
   return {
     repeatUser: state.settings.repeatUser,
-    dietaryPreferences: state.preferences.dietaryPreferences
+    dietaryPreferencesTmp: state.preferences.dietaryPreferencesTmp
   }
 };
 

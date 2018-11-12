@@ -72,10 +72,40 @@ export class PreferencesAction {
     }
   };
 
-  static storeDietaryPreferences = () => {
+  static setTmpDietaryPreferences = ( dietaryPreferences ) => {
+    return {
+      type: preferencesType.SET_TMP_DIETARY_PREFERENCES,
+      payload: {
+        dietaryPreferences
+      }
+    }
+  };
+
+  static setTmpDietaryPreferencesSuccess = ( response ) => {
+    return {
+      type: preferencesType.SET_TMP_DIETARY_PREFERENCES_SUCCESS,
+      payload: {
+        response
+      }
+    }
+  };
+
+  static setTmpDietaryPreferencesFailure = ( response, oldState ) => {
+    return {
+      type: preferencesType.SET_TMP_DIETARY_PREFERENCES_FAILURE,
+      payload: {
+        error: response,
+        oldState
+      }
+    }
+  };
+
+  static storeDietaryPreferences = ( dietaryPreferences ) => {
     return {
       type: preferencesType.STORE_DIETARY_PREFERENCES,
-      payload: {}
+      payload: {
+        dietaryPreferences
+      }
     }
   };
 

@@ -42,18 +42,28 @@ export const removeDietaryPreference = ( preferenceId ) => {
   }
 };
 
+export const setTmpDietaryPreferences = ( dietaryPreferences ) => {
+  return ( dispatch, getState ) => {
+    const oldState = getState().preferences;
+
+    dispatch( PreferencesAction.setTmpDietaryPreferences( dietaryPreferences ) );
+    dispatch( PreferencesAction.setTmpDietaryPreferencesSuccess( {} ) );
+  }
+};
+
 export const storeDietaryPreferences = () => {
   return ( dispatch, getState ) => {
-    const state = getState().preferences;
+    const oldState = getState().preferences;
+    const dietaryPreferences = oldState.dietaryPreferencesTmp;
 
-    dispatch( PreferencesAction.storeDietaryPreferences() );
+    dispatch( PreferencesAction.storeDietaryPreferences( dietaryPreferences ) );
 
-    _setItem( 'dietaryPreferences', JSON.stringify( state.dietaryPreferences ) )
+    _setItem( 'dietaryPreferences', JSON.stringify( dietaryPreferences ) )
       .then( response => {
         dispatch( PreferencesAction.storeDietaryPreferencesSuccess( response ) );
       } )
       .catch( error => {
-        dispatch( PreferencesAction.storeDietaryPreferencesFailure( error ) );
+        dispatch( PreferencesAction.storeDietaryPreferencesFailure( error, oldState ) );
       } )
   }
 };
