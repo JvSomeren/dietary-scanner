@@ -10,6 +10,7 @@ const PreferencesNavigator = createSwitchNavigator(
   },
   {
     initialRouteName: 'List',
+    backBehavior: 'initialRoute'
   }
 );
 

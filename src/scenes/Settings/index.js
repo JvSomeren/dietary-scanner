@@ -20,7 +20,8 @@ const SettingsNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'SettingsList'
+    initialRouteName: 'SettingsList',
+    backBehavior: 'initialRoute'
   }
 );
 

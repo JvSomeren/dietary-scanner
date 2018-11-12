@@ -17,7 +17,8 @@ const ScanNavigator = createSwitchNavigator(
     }
   },
   {
-    initialRouteName: 'ScanBase',
+    initialRouteName: 'Scanning',
+    backBehavior: 'initialRoute'
   }
 );
 

@@ -41,7 +41,8 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Preferences.tab' ),
-        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"food-fork-drink"} color={tintColor} type={'material-community'} />
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"food-fork-drink"} color={tintColor} type={'material-community'} />,
+        tabBarOnPress: ( { navigation } ) => navigation.navigate( 'List' )
       }),
     },
     Scan: {
@@ -49,7 +50,8 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Scan.tab' ),
-        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"barcode-scan"} color={tintColor} type={'material-community'} />
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"barcode-scan"} color={tintColor} type={'material-community'} />,
+        tabBarOnPress: ( { navigation } ) => navigation.navigate( 'Scanning' )
       }),
     },
     Settings: {
@@ -57,7 +59,8 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Settings.tab' ),
-        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"settings"} color={tintColor} type={'material-community'} />
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"settings"} color={tintColor} type={'material-community'} />,
+        tabBarOnPress: ( { navigation } ) => navigation.navigate( 'SettingsList' )
       }),
     }
   },
