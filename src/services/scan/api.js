@@ -8,7 +8,13 @@ const products = {
       },
       name: 'Test',
       ingredients: [],
-      allergyInformation: []
+      allergyInformation: [
+        { name: 'sesam', contains: true, canContain: true },
+        { name: 'lactose', contains: true, canContain: false },
+        { name: 'soja', contains: true, canContain: false },
+        { name: 'tarwebloem', contains: true, canContain: false },
+        { name: 'tarwezetmeel', contains: true, canContain: false },
+      ]
     }
   ]
 };

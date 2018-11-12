@@ -25,4 +25,29 @@ export class ScanAction {
       }
     }
   };
+
+  static checkCanEat = ( ) => {
+    return {
+      type: scanType.CHECK_CAN_EAT
+    }
+  };
+
+  static checkCanEatSuccess = ( response ) => {
+    return {
+      type: scanType.CHECK_CAN_EAT_SUCCESS,
+      payload: {
+        ...response
+      }
+    }
+  };
+
+  static checkCanEatFailure = ( response, oldState ) => {
+    return {
+      type: scanType.CHECK_CAN_EAT_FAILURE,
+      payload: {
+        error: response,
+        oldState
+      }
+    }
+  };
 }
