@@ -6,7 +6,7 @@ import { RNCamera } from "react-native-camera";
 import i18n from "../../../i18n";
 import { Icon } from "react-native-elements";
 import { Vibration } from "react-native";
-import { getProduct } from "../../../services/scan/service";
+import { checkCanEat, getProduct } from "../../../services/scan/service";
 
 import base from '../../../styles/base.scss'
 import styles from './styles'
@@ -64,7 +64,7 @@ class Scanning extends Component<Props> {
     const { navigate } = this.props.navigation;
 
     Vibration.vibrate( 100 );
-    this.props.getProduct( type, data );
+    this.props.getProduct( type, data, [ checkCanEat() ] );
 
     navigate( 'Feedback' );
   };
@@ -136,7 +136,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProduct: ( barCodeType, productId ) => dispatch( getProduct( barCodeType, productId ) )
+    getProduct: ( barCodeType, productId, extraServices = [] ) => dispatch( getProduct( barCodeType, productId, extraServices ) )
   }
 };
 
