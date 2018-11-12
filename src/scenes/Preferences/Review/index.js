@@ -34,7 +34,7 @@ class Review extends Component<Props> {
         <View style={base.flexCenter}>
           <RNEText h1 style={base.textCenter}>{i18n.t( 'Preferences.preferences' ).capitalize()}</RNEText>
           <Divider style={base.divider} />
-          <Text>Confirm your preferences by pressing <Text>{i18n.t( 'confirm' )}</Text>.</Text>
+          <Text>{i18n.t( 'Preferences.confirm by' ).capitalize()} <Text>{i18n.t( 'confirm' )}</Text>.</Text>
         </View>
 
         {this.props.dietaryPreferences.length ? (
@@ -50,19 +50,19 @@ class Review extends Component<Props> {
             }
           </RNEList>
         ) : (
-          <Text>Nothing</Text>
+          <Text>{i18n.t( 'Preferences.no preferences' ).capitalize()}</Text>
         )}
 
 
         <View style={[ base.flexCenter, base.horizontalContainer ]}>
           <Button
-            title={"Change"}
+            title={i18n.t( 'Preferences.change' ).capitalize()}
             onPress={() => {
               navigate( 'List' ); // TODO: add alert
             }
             } />
           <Button
-            title={"Confirm"}
+            title={i18n.t( 'confirm' ).capitalize()}
             onPress={() => this._onConfirm()}
           />
         </View>

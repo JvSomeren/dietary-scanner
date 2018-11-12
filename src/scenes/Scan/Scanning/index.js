@@ -88,12 +88,12 @@ class Scanning extends Component<Props> {
           barCodeTypes={this.state.barCodeTypes}
         >
           <View style={[ styles.outlineOuter, styles.buttonsAlignment ]}>
-            <TouchableOpacity style={[ styles.flipButton, { marginRight: 'auto' } ]} onPress={this.close.bind( this )}>
-              <Icon
-                name={"close"}
-                color={"#fff"}
-              />
-            </TouchableOpacity>
+            {/*<TouchableOpacity style={[ styles.flipButton, { marginRight: 'auto' } ]} onPress={this.close.bind( this )}>*/}
+              {/*<Icon*/}
+                {/*name={"close"}*/}
+                {/*color={"#fff"}*/}
+              {/*/>*/}
+            {/*</TouchableOpacity>*/}
             <TouchableOpacity style={styles.flipButton} onPress={this.toggleFacing.bind( this )}>
               <Icon
                 name={this.state.type.icon}

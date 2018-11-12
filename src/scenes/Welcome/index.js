@@ -24,8 +24,8 @@ class Welcome extends Component<Props> {
         <View style={base.flexCenter}>
           <Text style={styles.welcome}>{i18n.t( 'Welcome.welcome' )}!</Text>
           <Divider style={base.divider} />
-          <Text style={styles.instructions}>Pick your dietary preferences by
-            pressing <Text>{i18n.t( 'next' )}</Text>.</Text>
+          <Text style={styles.instructions}>{i18n.t( 'Welcome.pick language' ).capitalize()}
+            <Text> {i18n.t( 'next' )}</Text>.</Text>
         </View>
 
         <LanguageList />

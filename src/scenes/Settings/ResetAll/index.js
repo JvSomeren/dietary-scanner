@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { resetAll } from "../../../services/settings/service";
 
 import base from '../../../styles/base.scss'
+import i18n from "../../../i18n";
 
 type Props = {};
 
@@ -16,7 +17,7 @@ class ResetAll extends Component<Props> {
     return (
       <View style={base.flexCenter}>
         <Button
-          title={"Reset all"}
+          title={i18n.t( 'Settings.reset all' ).capitalize()}
           onPress={() => {
             this.props.resetAll();
             // navigate( 'SplashScreen' );
@@ -34,5 +35,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
+  null,
   mapDispatchToProps
 )( ResetAll );

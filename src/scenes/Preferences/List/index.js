@@ -15,15 +15,27 @@ class List extends Component<Props> {
     super( props );
   }
 
+  _bold = ( content ) => {
+    return <Text style={{ fontWeight: 'bold' }}>{content}</Text>
+  };
+
+  _title = ( item ) => {
+    const ingredientEle = this._bold( i18n.t( 'Preferences.allergies.' + item.name ).capitalize() );
+    const prefixText = this.props.dietaryPreferences.filter( p => p.id === item.id ).length ?
+      <Text>{i18n.t( 'Preferences.i do' ).capitalize()} {this._bold( i18n.t( 'Preferences.not' ) )} {i18n.t( 'Preferences.want' )}</Text> :
+      i18n.t( 'Preferences.i do want' ).capitalize();
+    return <Text>{prefixText} {ingredientEle}</Text>;
+  };
+
+  _leftIcon = ( item ) => {
+    return this.props.dietaryPreferences.filter( p => p.id === item.id ).length ? { name: 'remove' } : { name: 'add' };
+  };
+
   _onPress = ( item ) => {
     if ( this.props.dietaryPreferences.filter( p => p.id === item.id ).length )
       this.props.removeDietaryPreference( item.id );
     else
       this.props.addDietaryPreference( item );
-  };
-
-  _leftIcon = ( item ) => {
-    return this.props.dietaryPreferences.filter( p => p.id === item.id ).length ? { name: 'remove' } : { name: 'add' };
   };
 
   _skip = () => {
@@ -43,8 +55,8 @@ class List extends Component<Props> {
         <View style={base.flexCenter}>
           <RNEText h1 style={base.textCenter}>{i18n.t( 'Preferences.preferences' ).capitalize()}</RNEText>
           <Divider style={base.divider} />
-          <Text>Pick your dietary preferences by
-            pressing <Text>{i18n.t( 'next' )}</Text>.</Text>
+          <Text>{i18n.t( 'Preferences.pick preferences' ).capitalize()}
+            <Text>{i18n.t( 'Preferences.review' )}</Text>.</Text>
         </View>
 
         <RNEList containerStyle={[ base.flex, base.stretch ]}>
@@ -52,8 +64,8 @@ class List extends Component<Props> {
             this.props.availableAllergies.map( ( item ) => (
               <ListItem
                 key={item.id}
-                title={i18n.t( 'Preferences.allergies.' + item.name ).capitalize()}
-                leftIcon={this._leftIcon( item )}
+                title={this._title( item )}
+                // leftIcon={this._leftIcon( item )}
                 onPress={() => this._onPress( item )}
                 hideChevron
               />
@@ -64,14 +76,14 @@ class List extends Component<Props> {
         <View style={[ base.flexCenter, base.horizontalContainer ]}>
           {!this.props.repeatUser &&
           <Button
-            title={"Skip"}
+            title={i18n.t( 'Preferences.skip' ).capitalize()}
             onPress={() => {
               this._skip(); // TODO: add alert
             }}
           />
           }
           <Button
-            title={"Review"}
+            title={i18n.t( 'Preferences.review' ).capitalize()}
             onPress={() => {
               navigate( 'Review' );
             }}

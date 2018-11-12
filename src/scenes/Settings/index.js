@@ -23,7 +23,7 @@ const SettingsNavigator = createStackNavigator(
     SettingsResetAll: {
       screen: ResetAll,
       navigationOptions: ( { navigation } ) => ({
-        title: i18n.t( 'Settings.reset all ' ).capitalize()
+        title: i18n.t( 'Settings.reset all' ).capitalize()
       })
     }
   },
