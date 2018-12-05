@@ -6,16 +6,74 @@ const products = {
         barcode: '5410041005707',
         type: 'EAN_13'
       },
-      name: 'Test',
+      name: 'Test 1', // LU Pim's
       ingredients: [],
       allergyInformation: [
-        { name: 'sesam', contains: true, canContain: true },
         { name: 'lactose', contains: true, canContain: false },
-        { name: 'soja', contains: true, canContain: false },
-        { name: 'tarwebloem', contains: true, canContain: false },
-        { name: 'tarwezetmeel', contains: true, canContain: false },
       ]
-    }
+    },
+    {
+      id: 2,
+      barcode: {
+        barcode: '8710624210243',
+        type: 'EAN_13'
+      },
+      name: 'Test 2', //Perfekt chocoprentjes
+      ingredients: [],
+      allergyInformation: [
+        { name: 'peanuts', contains: true, canContain: false },
+      ]
+    },
+    {
+      id: 3,
+      barcode: {
+        barcode: '8710400425243',
+        type: 'EAN_13'
+      },
+      name: 'Test 3', // popcorn
+      ingredients: [],
+      allergyInformation: [
+        { name: 'nuts', contains: true, canContain: false },
+      ]
+    },
+    {
+      id: 4,
+      barcode: {
+        barcode: '8713800127151',
+        type: 'EAN_13'
+      },
+      name: 'Test 4', // Venco dropfruit duos
+      ingredients: [],
+      allergyInformation: [
+        { name: 'gluten', contains: true, canContain: false },
+      ]
+    },
+    {
+      id: 5,
+      barcode: {
+        barcode: '8710908977220',
+        type: 'EAN_13'
+      },
+      name: 'Test 5', // Cup a soup kip
+      ingredients: [],
+      allergyInformation: [
+        { name: 'gluten', contains: true, canContain: false },
+        { name: 'nuts', contains: true, canContain: false },
+      ]
+    },
+    {
+      id: 6,
+      barcode: {
+        barcode: '8714200212720',
+        type: 'EAN_13'
+      },
+      name: 'Test 6', // Venco Drop
+      ingredients: [],
+      allergyInformation: [
+        { name: 'peanuts', contains: true, canContain: false },
+        { name: 'nuts', contains: true, canContain: false },
+      ]
+    },
   ]
 };
 

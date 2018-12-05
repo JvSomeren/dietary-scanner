@@ -14,7 +14,8 @@ const allergies = [
   {
     id: 4,
     name: 'gluten'
-  }
+  },
+
 ];
 
 export const getAvailableAllergies = () => {

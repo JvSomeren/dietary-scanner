@@ -1,7 +1,8 @@
 {
   "Translations": {
     "en": "english",
-    "nl": "dutch"
+    "nl": "dutch",
+    "pl": "polish"
   },
   "Welcome": {
     "welcome": "Welcome",
@@ -14,7 +15,8 @@
       "lactose": "lactose",
       "peanuts": "peanuts",
       "nuts": "nuts",
-      "gluten": "gluten"
+      "gluten": "gluten",
+      "soy": "soy"
     },
     "skip": "skip",
     "review": "review",
