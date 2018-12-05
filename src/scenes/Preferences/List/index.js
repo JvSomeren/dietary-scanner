@@ -88,14 +88,6 @@ class List extends Component<Props> {
         </RNEList>
 
         <View style={[ base.flexCenter, base.horizontalContainer ]}>
-          {!this.props.repeatUser &&
-          <Button
-            title={i18n.t( 'Preferences.skip' ).capitalize()}
-            onPress={() => {
-              this._skip(); // TODO: add alert
-            }}
-          />
-          }
           <Button
             title={i18n.t( 'Preferences.review' ).capitalize()}
             onPress={() => {
