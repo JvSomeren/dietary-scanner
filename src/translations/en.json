@@ -9,8 +9,8 @@
     "pick language": "please pick you preferred language and then press"
   },
   "Preferences": {
-    "tab": "Preferences",
-    "preferences": "preferences",
+    "tab": "Ingredients",
+    "preferences": "ingredients",
     "allergies": {
       "lactose": "lactose",
       "peanuts": "peanuts",
@@ -20,10 +20,10 @@
     },
     "skip": "skip",
     "review": "review",
-    "pick preferences": "Please select you dietary preferences and then press",
-    "confirm by": "confirm your preferences by pressing",
+    "pick preferences": "Please select your unwanted ingredients and then press",
+    "confirm by": "confirm your ingredients by pressing",
     "change": "change",
-    "no preferences": "you have not selected any preferences",
+    "no preferences": "you have not selected any ingredients",
     "i do want": "I do want",
     "i do": "i do",
     "want": "want",
@@ -36,11 +36,15 @@
       "failure": "failure",
       "can eat": "You can eat this",
       "cannot eat": "You cannot eat this",
-      "product contains": "this product contains the following ingredients."
+      "product contains": "product contains:"
     },
     "permission": {
       "title": "Permission to use camera",
       "message": "We need your permission to use your camera phone"
+    },
+    "flashlight": {
+      "on": "turn flashlight off",
+      "off": "turn flashlight on"
     }
   },
   "Settings": {
