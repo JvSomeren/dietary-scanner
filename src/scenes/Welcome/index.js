@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Button, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { List, Divider } from 'react-native-elements';
 import { connect } from "react-redux";
 import i18n from '../../i18n'
@@ -8,6 +8,7 @@ import { updateLanguage } from "../../services/settings/service";
 import base from '../../styles/base.scss'
 import styles from './styles.scss'
 import LanguageList from "../../components/LanguageList";
+import ButtonLarge from "../../components/ButtonLarge";
 
 type Props = {};
 
@@ -24,15 +25,15 @@ class Welcome extends Component<Props> {
         <View style={base.flexCenter}>
           <Text style={styles.welcome}>{i18n.t( 'Welcome.welcome' )}!</Text>
           <Divider style={base.divider} />
-          <Text style={styles.instructions}>{i18n.t( 'Welcome.pick language' ).capitalize()}
-            <Text> {i18n.t( 'next' )}</Text>.</Text>
+          <Text style={styles.instructions, { fontSize: 16, textAlign: 'center' }}>{i18n.t( 'Welcome.pick language' ).capitalize()}
+            <Text style={{ fontSize: 16, textAlign: 'center' }}> {i18n.t( 'confirm' )}</Text>.</Text>
         </View>
 
         <LanguageList />
 
         <View style={base.flexCenter}>
-          <Button
-            title={i18n.t( 'next' ).capitalize()}
+          <ButtonLarge
+            title={i18n.t( 'confirm' ).capitalize()}
             onPress={() => {
               navigate( 'List' );
             }} />

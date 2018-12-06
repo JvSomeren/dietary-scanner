@@ -32,6 +32,7 @@ class SettingsList extends Component<Props> {
             list.map( ( item ) => (
               <ListItem
                 key={item.name}
+                titleStyle={{ fontSize: 20 }}
                 title={i18n.t( 'Settings.' + item.name ).capitalize()}
                 onPress={() => this._onPress( item.navigationTargetName )}
               />

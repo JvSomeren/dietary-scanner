@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     margin: 20
   },
   flipButton: {
-    flex: 0.15,
+    flex: 0.4,
     height: 40,
     marginHorizontal: 2,
     marginTop: 20,
@@ -30,11 +30,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 5,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    color: '#fff'
   },
   flipText: {
     color: 'white',
-    fontSize: 15
+    fontSize: 18
   },
   buttonsAlignment: {
     flexDirection: 'row',

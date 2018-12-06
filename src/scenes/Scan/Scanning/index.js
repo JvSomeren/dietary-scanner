@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withNavigationFocus } from "react-navigation";
 import { RNCamera } from "react-native-camera";
 import i18n from "../../../i18n";
-import { Icon } from "react-native-elements";
+import { Icon, Text } from "react-native-elements";
 import { Vibration } from "react-native";
 import { checkCanEat, getProduct } from "../../../services/scan/service";
 
@@ -26,7 +26,8 @@ class Scanning extends Component<Props> {
   state = {
     flash: {
       state: 'off',
-      icon: 'flashlight-off'
+      icon: 'flashlight-off',
+      status: 'off'
     },
     type: {
       state: 'back',
@@ -55,7 +56,8 @@ class Scanning extends Component<Props> {
     this.setState( {
       flash: {
         state: flashModeOrder[ this.state.flash.state ],
-        icon: flashModeOrder[ this.state.flash.state ] === 'off' ? 'flashlight-off' : 'flashlight'
+        icon: flashModeOrder[ this.state.flash.state ] === 'off' ? 'flashlight-off' : 'flashlight',
+        status: flashModeOrder[ this.state.flash.state ] === 'off' ? 'off' : 'on'
       }
     } );
   };
@@ -94,18 +96,19 @@ class Scanning extends Component<Props> {
                 {/*color={"#fff"}*/}
               {/*/>*/}
             {/*</TouchableOpacity>*/}
-            <TouchableOpacity style={styles.flipButton} onPress={this.toggleFacing.bind( this )}>
-              <Icon
-                name={this.state.type.icon}
-                color={"#fff"}
-              />
-            </TouchableOpacity>
+            {/*<TouchableOpacity style={styles.flipButton} onPress={this.toggleFacing.bind( this )}>*/}
+              {/*<Icon*/}
+                {/*name={this.state.type.icon}*/}
+                {/*color={"#fff"}*/}
+              {/*/>*/}
+            {/*</TouchableOpacity>*/}
             <TouchableOpacity style={styles.flipButton} onPress={this.toggleFlash.bind( this )}>
-              <Icon
-                name={this.state.flash.icon}
-                color={"#fff"}
-                type={"material-community"}
-              />
+              {/*<Icon*/}
+                {/*name={this.state.flash.icon}*/}
+                {/*color={"#fff"}*/}
+                {/*type={"material-community"}*/}
+              {/*/>*/}
+              <Text style={styles.flipText}>{ i18n.t( `Scan.flashlight.${this.state.flash.status}` ).capitalize() }</Text>
             </TouchableOpacity>
           </View>
 

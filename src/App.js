@@ -34,6 +34,7 @@ const WelcomeNavigator = createSwitchNavigator(
   }
 );
 
+const iconSize = 34;
 const MainNavigator = createBottomTabNavigator(
   {
     Preferences: {
@@ -41,7 +42,7 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Preferences.tab' ),
-        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"food-fork-drink"} color={tintColor} type={'material-community'} />,
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"food-fork-drink"} color={tintColor} type={'material-community'} size={iconSize} />,
         tabBarOnPress: ( { navigation } ) => navigation.navigate( 'List' )
       }),
     },
@@ -50,7 +51,7 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Scan.tab' ),
-        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"barcode-scan"} color={tintColor} type={'material-community'} />,
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"barcode-scan"} color={tintColor} type={'material-community'} size={iconSize} />,
         tabBarOnPress: ( { navigation } ) => navigation.navigate( 'Scanning' )
       }),
     },
@@ -59,13 +60,22 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: () => ({
         header: null,
         tabBarLabel: i18n.t( 'Settings.tab' ),
-        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"settings"} color={tintColor} type={'material-community'} />,
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"settings"} color={tintColor} type={'material-community'} size={iconSize} />,
         tabBarOnPress: ( { navigation } ) => navigation.navigate( 'SettingsList' )
       }),
     }
   },
   {
     initialRouteName: 'Scan',
+    tabBarOptions: {
+      style: {
+        height: 80,
+      },
+      labelStyle: {
+        fontSize: 16,
+        marginBottom: 8
+      }
+    }
   }
 );
 
@@ -91,7 +101,7 @@ const RootStack = createSwitchNavigator(
     }
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'SplashScreen'
   }
 );
 

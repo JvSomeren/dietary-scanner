@@ -1,6 +1,7 @@
 import { PreferencesAction } from "./actions";
 import { getAvailableAllergies } from "./api";
 import { _getItem, _setItem } from "../AsyncStorage";
+import { setRepeatUser } from "../settings/service";
 
 export const init = () => {
   return ( dispatch ) => {
@@ -48,6 +49,9 @@ export const setTmpDietaryPreferences = ( dietaryPreferences ) => {
 
     dispatch( PreferencesAction.setTmpDietaryPreferences( dietaryPreferences ) );
     dispatch( PreferencesAction.setTmpDietaryPreferencesSuccess( {} ) );
+
+    dispatch( storeDietaryPreferences() );
+    dispatch( setRepeatUser() );
   }
 };
 

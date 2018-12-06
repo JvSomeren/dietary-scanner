@@ -45,13 +45,14 @@ class Feedback extends Component<Props> {
         {this.renderFeedbackHeader()}
         <View style={[ base.container, base.stretch ]}>
           <RNEText
-            style={[ base.textCenter, { fontSize: 16 } ]}>{i18n.t( 'Scan.Feedback.product contains' ).capitalize()}</RNEText>
+            style={[ base.textCenter, { fontSize: 22, marginTop: 15 } ]}>{i18n.t( 'Scan.Feedback.product contains' ).capitalize()}</RNEText>
           <List containerStyle={[ base.flex, base.stretch ]}>
             {
               this.props.unwantedIngredients.map( ( ingredient ) => (
                 <ListItem
                   key={ingredient.id}
                   title={i18n.t( 'Preferences.allergies.' + ingredient.name ).capitalize()}
+                  titleStyle={{ fontSize: 20 }}
                   hideChevron
                 />
               ) )

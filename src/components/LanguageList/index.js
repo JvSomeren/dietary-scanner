@@ -38,6 +38,7 @@ class LanguageList extends Component<Props> {
               hideChevron
               leftIcon={this._leftIcon( item )}
               onPress={() => this._onPressItem( item )}
+              titleStyle={{ fontSize: 20 }}
             />
           ) )
         }
