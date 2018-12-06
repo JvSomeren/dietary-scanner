@@ -1,0 +1,56 @@
+{
+  "Translations": {
+    "en": "angielski",
+    "nl": "holenderski", 
+    "pl": "polski",
+  },
+  "Welcome": {
+    "welcome": "Witaj",
+    "pick language": "Wybierz preferencje językowe" 
+  },
+  "Preferences": {
+    "tab": "Preferencje",
+    "preferences": "preferencje",
+    "allergies": {
+      "lactose": "laktoza",
+      "peanuts": "orzeszki ziemne",
+      "nuts": "orzechy ",
+      "gluten": "gluten",
+      "soy": "soja"
+    },
+    "skip": "pomiń",
+    "review": "podsumowanie",
+    "pick preferences": "Wybierz preferencje dietetyczne i kliknij" ,
+    "confirm by": " potwierdź preferencje i kliknij",
+    "change": "zmień",
+    "no preferences": "nie wybralaś/eś żadnych preferencji",
+    "i do want": "Chcę",
+    "i do": "Ja",
+    "want": "chcę",
+    "not": "nie"
+  },
+  "Scan": {
+    "tab": "Skan",
+    "Feedback": {
+      "success": "powiodło się",
+      "failure": "nie powiodło się ",
+      "can eat": "Możesz to zjeść.",
+      "cannot eat": "Nie możesz tego jeść",
+      "product contains": "Ten product zawiera następujące składniki:"
+    },
+    "permission": {
+      "title": "Pozwolenie na użycie kamery",
+      "message": "Potrzebujemy Twojej zgody na dostęp do kamery w telefonie."
+    }
+  },
+  "Settings": {
+    "tab": "Ustawienia",
+    "settings": "ustawienia",
+    "language": "język",
+    "reset all": "zresetuj wszystko"
+  },
+  "loading": "ładownie",
+  "next": "następny",
+  "selected": "wybrany",
+  "confirm": "zatwierdź"
+}

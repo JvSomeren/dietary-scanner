@@ -3,7 +3,6 @@ import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import base from '../../styles/base.scss'
-import styles from './styles.scss'
 
 type Props = {};
 class Splash extends Component<Props> {

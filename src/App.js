@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
 import { Provider } from 'react-redux'
-import { store } from './store'
-import { updateLanguage, init as settingsInit } from "./services/settings/service";
-import { init as preferencesInit } from "./services/preferences/service";
+import { initStore, store } from './store'
+import { updateLanguage } from "./services/settings/service";
+import './services/helpers'
 import RNLanguages from 'react-native-languages'
 import i18n from './i18n'
 
@@ -12,6 +12,7 @@ import Welcome from './scenes/Welcome'
 import PreferencesNavigator from './scenes/Preferences'
 import ScanNavigator from "./scenes/Scan"
 import SettingsNavigator from './scenes/Settings'
+import { Icon } from "react-native-elements";
 
 const WelcomeNavigator = createSwitchNavigator(
   {
@@ -33,32 +34,48 @@ const WelcomeNavigator = createSwitchNavigator(
   }
 );
 
+const iconSize = 34;
 const MainNavigator = createBottomTabNavigator(
   {
     Preferences: {
       screen: PreferencesNavigator,
       navigationOptions: () => ({
         header: null,
-        tabBarLabel: i18n.t( 'Preferences.tab' )
+        tabBarLabel: i18n.t( 'Preferences.tab' ),
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"food-fork-drink"} color={tintColor} type={'material-community'} size={iconSize} />,
+        tabBarOnPress: ( { navigation } ) => navigation.navigate( 'List' )
       }),
     },
     Scan: {
       screen: ScanNavigator,
       navigationOptions: () => ({
         header: null,
-        tabBarLabel: i18n.t( 'Scan.tab' )
+        tabBarLabel: i18n.t( 'Scan.tab' ),
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"barcode-scan"} color={tintColor} type={'material-community'} size={iconSize} />,
+        tabBarOnPress: ( { navigation } ) => navigation.navigate( 'Scanning' )
       }),
     },
     Settings: {
       screen: SettingsNavigator,
       navigationOptions: () => ({
         header: null,
-        tabBarLabel: i18n.t( 'Settings.tab' )
+        tabBarLabel: i18n.t( 'Settings.tab' ),
+        tabBarIcon: ( { focused, horizontal, tintColor } ) => <Icon name={"settings"} color={tintColor} type={'material-community'} size={iconSize} />,
+        tabBarOnPress: ( { navigation } ) => navigation.navigate( 'SettingsList' )
       }),
     }
   },
   {
-    initialRouteName: 'Scan'
+    initialRouteName: 'Scan',
+    tabBarOptions: {
+      style: {
+        height: 80,
+      },
+      labelStyle: {
+        fontSize: 16,
+        marginBottom: 8
+      }
+    }
   }
 );
 
@@ -84,7 +101,7 @@ const RootStack = createSwitchNavigator(
     }
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'SplashScreen'
   }
 );
 
@@ -93,8 +110,7 @@ export default class App extends Component<Props> {
   componentWillMount() {
     RNLanguages.addEventListener( 'change', this._onLanguagesChange );
 
-    store.dispatch( settingsInit() ); // TODO: move this and do smarter initialize
-    store.dispatch( preferencesInit() );
+    store.dispatch( initStore() );
   }
 
   componentWillUnmount() {

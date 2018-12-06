@@ -1,16 +1,56 @@
 {
+  "Translations": {
+    "en": "engels",
+    "nl": "nederlands",
+    "pl": "pools"
+  },
   "Welcome": {
     "welcome": "Welkom",
-    "pick-language": "Kies een taal"
+    "pick language": "Kies de taal van uw voorkeur en druk dan op"
   },
   "Preferences": {
-
+    "tab": "Voorkeuren",
+    "preferences": "voorkeuren",
+    "allergies": {
+      "lactose": "lactose",
+      "peanuts": "pinda's",
+      "nuts": "noten",
+      "gluten": "gluten",
+      "soy": "soja"
+    },
+    "skip": "overslaan",
+    "review": "bekijken",
+    "pick preferences": "Kies uw voorkeuren en druk dan op",
+    "confirm by": "bekijk uw voorkeuren en druk dan op",
+    "change": "wijzigen",
+    "no preferences": "u heeft geen voorkeuren geselecteerd",
+    "i do want": "Ik wil",
+    "i do": "ik wil",
+    "want": "",
+    "not": "geen"
   },
   "Scan": {
-
+    "tab": "Scan",
+    "Feedback": {
+      "success": "succes",
+      "failure": "mislukt",
+      "can eat": "Je kan dit eten",
+      "cannot eat": "Je kan dit niet eten",
+      "product contains": "dit product bevat de volgende ingredienten."
+    },
+    "permission": {
+      "title": "Permissie om camera te gebruiken",
+      "message": "We hebben uw permissie nodig om uw camera te gebruiken"
+    }
   },
   "Settings": {
-
+    "tab": "Instellingen",
+    "settings": "instellingen",
+    "language": "taal",
+    "reset all": "herstel alles"
   },
-  "next": "volgende"
+  "loading": "laden",
+  "next": "volgende",
+  "selected": "geselecteerd",
+  "confirm": "bevestigen"
 }

@@ -1,6 +1,7 @@
 import { PreferencesAction } from "./actions";
 import { getAvailableAllergies } from "./api";
 import { _getItem, _setItem } from "../AsyncStorage";
+import { setRepeatUser } from "../settings/service";
 
 export const init = () => {
   return ( dispatch ) => {
@@ -26,7 +27,7 @@ export const init = () => {
 
 export const addDietaryPreference = ( preference ) => {
   return ( dispatch, getState ) => {
-    const oldState = getState();
+    const oldState = getState().preferences;
 
     dispatch( PreferencesAction.addDietaryPreference( preference ) );
     dispatch( PreferencesAction.addDietaryPreferenceSuccess( {} ) );
@@ -35,25 +36,38 @@ export const addDietaryPreference = ( preference ) => {
 
 export const removeDietaryPreference = ( preferenceId ) => {
   return ( dispatch, getState ) => {
-    const oldState = getState();
+    const oldState = getState().preferences;
 
     dispatch( PreferencesAction.removeDietaryPreference( preferenceId ) );
     dispatch( PreferencesAction.removeDietaryPreferenceSuccess( {} ) );
   }
 };
 
+export const setTmpDietaryPreferences = ( dietaryPreferences ) => {
+  return ( dispatch, getState ) => {
+    const oldState = getState().preferences;
+
+    dispatch( PreferencesAction.setTmpDietaryPreferences( dietaryPreferences ) );
+    dispatch( PreferencesAction.setTmpDietaryPreferencesSuccess( {} ) );
+
+    dispatch( storeDietaryPreferences() );
+    dispatch( setRepeatUser() );
+  }
+};
+
 export const storeDietaryPreferences = () => {
   return ( dispatch, getState ) => {
-    const state = getState();
+    const oldState = getState().preferences;
+    const dietaryPreferences = oldState.dietaryPreferencesTmp;
 
-    dispatch( PreferencesAction.storeDietaryPreferences() );
+    dispatch( PreferencesAction.storeDietaryPreferences( dietaryPreferences ) );
 
-    _setItem( 'dietaryPreferences', JSON.stringify( state.preferences.dietaryPreferences ) )
+    _setItem( 'dietaryPreferences', JSON.stringify( dietaryPreferences ) )
       .then( response => {
         dispatch( PreferencesAction.storeDietaryPreferencesSuccess( response ) );
       } )
       .catch( error => {
-        dispatch( PreferencesAction.storeDietaryPreferencesFailure( error ) );
+        dispatch( PreferencesAction.storeDietaryPreferencesFailure( error, oldState ) );
       } )
   }
 };

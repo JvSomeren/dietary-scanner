@@ -1,16 +1,60 @@
 {
+  "Translations": {
+    "en": "english",
+    "nl": "dutch",
+    "pl": "polish"
+  },
   "Welcome": {
     "welcome": "Welcome",
-    "pick-language": "Pick a language"
+    "pick language": "please pick you preferred language and then press"
   },
   "Preferences": {
-
+    "tab": "Ingredients",
+    "preferences": "ingredients",
+    "allergies": {
+      "lactose": "lactose",
+      "peanuts": "peanuts",
+      "nuts": "nuts",
+      "gluten": "gluten",
+      "soy": "soy"
+    },
+    "skip": "skip",
+    "review": "review",
+    "pick preferences": "Please select your unwanted ingredients and then press",
+    "confirm by": "confirm your ingredients by pressing",
+    "change": "change",
+    "no preferences": "you have not selected any ingredients",
+    "i do want": "I do want",
+    "i do": "i do",
+    "want": "want",
+    "not": "not"
   },
   "Scan": {
-
+    "tab": "Scan",
+    "Feedback": {
+      "success": "success",
+      "failure": "failure",
+      "can eat": "You can eat this",
+      "cannot eat": "You cannot eat this",
+      "product contains": "product contains:"
+    },
+    "permission": {
+      "title": "Permission to use camera",
+      "message": "We need your permission to use your camera phone"
+    },
+    "flashlight": {
+      "on": "turn flashlight off",
+      "off": "turn flashlight on"
+    }
   },
   "Settings": {
-
+    "tab": "Settings",
+    "settings": "settings",
+    "language": "language",
+    "reset all": "reset all"
   },
-  "next": "next"
+  "loading": "loading",
+  "next": "next",
+  "selected": "selected",
+  "confirm": "confirm"
 }

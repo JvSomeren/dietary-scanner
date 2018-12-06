@@ -23,7 +23,7 @@ class Review extends Component<Props> {
     if ( !this.props.repeatUser )
       this.props.setRepeatUser();
 
-    navigate( 'MainStack' );
+    navigate( 'Scanning' );
   };
 
   render() {
@@ -34,13 +34,13 @@ class Review extends Component<Props> {
         <View style={base.flexCenter}>
           <RNEText h1 style={base.textCenter}>{i18n.t( 'Preferences.preferences' ).capitalize()}</RNEText>
           <Divider style={base.divider} />
-          <Text>Confirm your preferences by pressing <Text>{i18n.t( 'confirm' )}</Text>.</Text>
+          <Text>{i18n.t( 'Preferences.confirm by' ).capitalize()} <Text>{i18n.t( 'confirm' )}</Text>.</Text>
         </View>
 
-        {this.props.dietaryPreferences.length ? (
+        {this.props.dietaryPreferencesTmp.length ? (
           <RNEList containerStyle={[ base.flex, base.stretch ]}>
             {
-              this.props.dietaryPreferences.map( ( item ) => (
+              this.props.dietaryPreferencesTmp.map( ( item ) => (
                 <ListItem
                   key={item.id}
                   title={i18n.t( 'Preferences.allergies.' + item.name ).capitalize()}
@@ -50,19 +50,19 @@ class Review extends Component<Props> {
             }
           </RNEList>
         ) : (
-          <Text>Nothing</Text>
+          <Text>{i18n.t( 'Preferences.no preferences' ).capitalize()}</Text>
         )}
 
 
         <View style={[ base.flexCenter, base.horizontalContainer ]}>
           <Button
-            title={"Change"}
+            title={i18n.t( 'Preferences.change' ).capitalize()}
             onPress={() => {
               navigate( 'List' ); // TODO: add alert
             }
             } />
           <Button
-            title={"Confirm"}
+            title={i18n.t( 'confirm' ).capitalize()}
             onPress={() => this._onConfirm()}
           />
         </View>
@@ -74,7 +74,7 @@ class Review extends Component<Props> {
 const mapStateToProps = state => {
   return {
     repeatUser: state.settings.repeatUser,
-    dietaryPreferences: state.preferences.dietaryPreferences
+    dietaryPreferencesTmp: state.preferences.dietaryPreferencesTmp
   }
 };
 
