@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { connect } from "react-redux";
 import base from '../../../styles/base.scss'
 import i18n from "../../../i18n";
 import { Divider, List as RNEList, ListItem, Text as RNEText } from "react-native-elements";
 import { setTmpDietaryPreferences } from "../../../services/preferences/service";
 import { setRepeatUser } from "../../../services/settings/service";
+import IngredientsList from "../../../components/IngredientsList";
+import ButtonLarge from "../../../components/ButtonLarge";
 
 
 type Props = {};
@@ -69,30 +71,18 @@ class List extends Component<Props> {
         <View style={base.flexCenter}>
           <RNEText h1 style={base.textCenter}>{i18n.t( 'Preferences.preferences' ).capitalize()}</RNEText>
           <Divider style={base.divider} />
-          <Text>{i18n.t( 'Preferences.pick preferences' ).capitalize()}
-            <Text>{i18n.t( 'Preferences.review' )}</Text>.</Text>
+          <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t( 'Preferences.pick preferences' ).capitalize() + ' '}
+            <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t( 'Preferences.review' )}</Text>.</Text>
         </View>
 
-        <RNEList containerStyle={[ base.flex, base.stretch ]}>
-          {
-            this.props.availableAllergies.map( ( item ) => (
-              <ListItem
-                key={item.id}
-                title={this._title( item )}
-                // leftIcon={this._leftIcon( item )}
-                onPress={() => this._onPress( item )}
-                hideChevron
-              />
-            ) )
-          }
-        </RNEList>
+        <IngredientsList onPress={this._onPress} />
 
         <View style={[ base.flexCenter, base.horizontalContainer ]}>
-          <Button
-            title={i18n.t( 'Preferences.review' ).capitalize()}
+          <ButtonLarge
+            title={i18n.t( 'confirm' ).capitalize()}
             onPress={() => {
               this.props.setTmpDietaryPreferences( this.state.dietaryPreferences );
-              navigate( 'Review' );
+              navigate( 'Scan' );
             }}
           />
         </View>
