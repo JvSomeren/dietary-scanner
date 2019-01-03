@@ -25,7 +25,7 @@ class Welcome extends Component<Props> {
         <View style={base.flexCenter}>
           <RNEText h1 style={base.textCenter}>{i18n.t( 'Welcome.welcome' )}!</RNEText>
           <Divider style={base.divider} />
-          <Text style={styles.instructions, { fontSize: 18, textAlign: 'center' }}>{i18n.t( 'Welcome.pick language' ).capitalize()}
+          <Text style={ [styles.instructions, { fontSize: 18, textAlign: 'center' } ]}>{i18n.t( 'Welcome.pick language' ).capitalize()}
             {/*<Text style={{ fontSize: 16, textAlign: 'center' }}> {i18n.t( 'confirm' )}</Text>.*/}
           </Text>
         </View>

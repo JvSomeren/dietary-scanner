@@ -1,6 +1,7 @@
 import { _getAllKeys, _multiGet, _multiRemove, _setItem } from "../AsyncStorage";
 import { SettingsAction } from "./actions";
 import i18n from "../../i18n";
+import NavigationService from "../navigation";
 
 export const init = () => {
   const keys = [ 'repeatUser', 'language' ];
@@ -76,6 +77,8 @@ export const updateLanguage = ( language ) => {
     _setItem( 'language', language )
       .then( response => {
         i18n.locale = language;
+        // redraw
+        NavigationService.forceRender();
         dispatch( SettingsAction.updateLanguageSuccess( response ) );
       } )
       .catch( error => {
