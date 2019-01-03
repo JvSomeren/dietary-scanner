@@ -6,7 +6,7 @@
   },
   "Welcome": {
     "welcome": "Welcome",
-    "pick language": "please pick you preferred language and then press"
+    "pick language": "choose your preferred language"
   },
   "Preferences": {
     "tab": "Ingredients",
@@ -20,7 +20,7 @@
     },
     "skip": "skip",
     "review": "review",
-    "pick preferences": "Please select your unwanted ingredients and then press",
+    "pick preferences": "choose ingredients you want to avoid",
     "confirm by": "confirm your ingredients by pressing",
     "change": "change",
     "no preferences": "you have not selected any ingredients",

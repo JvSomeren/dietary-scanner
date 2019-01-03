@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import { List, Divider } from 'react-native-elements';
+import { List, Divider, Text as RNEText } from 'react-native-elements';
 import { connect } from "react-redux";
 import i18n from '../../i18n'
 import { updateLanguage } from "../../services/settings/service";
@@ -23,10 +23,11 @@ class Welcome extends Component<Props> {
     return (
       <View style={base.container}>
         <View style={base.flexCenter}>
-          <Text style={styles.welcome}>{i18n.t( 'Welcome.welcome' )}!</Text>
+          <RNEText h1 style={base.textCenter}>{i18n.t( 'Welcome.welcome' )}!</RNEText>
           <Divider style={base.divider} />
-          <Text style={styles.instructions, { fontSize: 16, textAlign: 'center' }}>{i18n.t( 'Welcome.pick language' ).capitalize()}
-            <Text style={{ fontSize: 16, textAlign: 'center' }}> {i18n.t( 'confirm' )}</Text>.</Text>
+          <Text style={styles.instructions, { fontSize: 18, textAlign: 'center' }}>{i18n.t( 'Welcome.pick language' ).capitalize()}
+            {/*<Text style={{ fontSize: 16, textAlign: 'center' }}> {i18n.t( 'confirm' )}</Text>.*/}
+          </Text>
         </View>
 
         <LanguageList />

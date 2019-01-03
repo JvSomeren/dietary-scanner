@@ -1,56 +1,60 @@
 {
   "Translations": {
     "en": "angielski",
-    "nl": "holenderski", 
-    "pl": "polski",
+    "nl": "holenderski",
+    "pl": "polski"
   },
   "Welcome": {
     "welcome": "Witaj",
-    "pick language": "Wybierz preferencje językowe" 
+    "pick language": "Wybierz język"
   },
   "Preferences": {
-    "tab": "Preferencje",
-    "preferences": "preferencje",
+    "tab": "Składniki",
+    "preferences": "składniki",
     "allergies": {
       "lactose": "laktoza",
       "peanuts": "orzeszki ziemne",
-      "nuts": "orzechy ",
+      "nuts": "orzechy",
       "gluten": "gluten",
       "soy": "soja"
     },
     "skip": "pomiń",
-    "review": "podsumowanie",
-    "pick preferences": "Wybierz preferencje dietetyczne i kliknij" ,
-    "confirm by": " potwierdź preferencje i kliknij",
+    "review": "kontorla",
+    "pick preferences": "Wybierz szkodliwe składniki",
+    "confirm by": "potwierdź składniki",
     "change": "zmień",
-    "no preferences": "nie wybralaś/eś żadnych preferencji",
+    "no preferences": "Nie wybrałeś składników",
     "i do want": "Chcę",
     "i do": "Ja",
     "want": "chcę",
     "not": "nie"
   },
   "Scan": {
-    "tab": "Skan",
+    "tab": "Skanuj",
     "Feedback": {
-      "success": "powiodło się",
-      "failure": "nie powiodło się ",
-      "can eat": "Możesz to zjeść.",
-      "cannot eat": "Nie możesz tego jeść",
-      "product contains": "Ten product zawiera następujące składniki:"
+      "success": "sukces",
+      "failure": "nie powiodło się",
+      "can eat": "Możesz to jeść",
+      "cannot eat": "Unikaj tego produktu",
+      "product contains": "Zawiera:"
     },
     "permission": {
-      "title": "Pozwolenie na użycie kamery",
-      "message": "Potrzebujemy Twojej zgody na dostęp do kamery w telefonie."
+      "title": "Zgoda na użycie kamery",
+      "message": "Potrzebna zgoda na użycie kamery"
+    },
+    "flashlight": {
+      "on": "wyłącz światło",
+      "off": "włącz światło"
     }
   },
   "Settings": {
     "tab": "Ustawienia",
     "settings": "ustawienia",
     "language": "język",
-    "reset all": "zresetuj wszystko"
+    "reset all": "zresetuj"
   },
-  "loading": "ładownie",
+  "loading": "ładowanie",
   "next": "następny",
   "selected": "wybrany",
-  "confirm": "zatwierdź"
+  "confirm": "potwierdż"
 }

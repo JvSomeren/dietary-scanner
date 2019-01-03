@@ -35,7 +35,7 @@ class IngredientsList extends Component<Props> {
   };
 
   _leftIcon = ( item ) => {
-    return this.state.dietaryPreferences.filter( p => p.id === item.id ).length ? { name: 'remove', color: 'white' } : { name: 'add' };
+    return this.state.dietaryPreferences.filter( p => p.id === item.id ).length ? { name: 'remove', color: 'white' } : { name: 'check' };
   };
 
   _style = ( item ) => {
