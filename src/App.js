@@ -13,6 +13,7 @@ import PreferencesNavigator from './scenes/Preferences'
 import ScanNavigator from "./scenes/Scan"
 import SettingsNavigator from './scenes/Settings'
 import { Icon } from "react-native-elements";
+import NavigationService from "./services/navigation";
 
 const WelcomeNavigator = createSwitchNavigator(
   {
@@ -124,7 +125,11 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Provider store={store}>
-        <RootStack />
+        <RootStack
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator( navigatorRef );
+          }}
+        />
       </Provider>
     )
   }

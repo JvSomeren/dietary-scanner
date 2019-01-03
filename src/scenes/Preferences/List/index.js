@@ -71,8 +71,9 @@ class List extends Component<Props> {
         <View style={base.flexCenter}>
           <RNEText h1 style={base.textCenter}>{i18n.t( 'Preferences.preferences' ).capitalize()}</RNEText>
           <Divider style={base.divider} />
-          <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t( 'Preferences.pick preferences' ).capitalize() + ' '}
-            <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t( 'Preferences.review' )}</Text>.</Text>
+          <Text style={{ fontSize: 18, textAlign: 'center' }}>{i18n.t( 'Preferences.pick preferences' ).capitalize() + ' '}
+            {/*<Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t( 'Preferences.review' )}</Text>.*/}
+          </Text>
         </View>
 
         <IngredientsList onPress={this._onPress} />

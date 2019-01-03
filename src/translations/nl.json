@@ -6,11 +6,11 @@
   },
   "Welcome": {
     "welcome": "Welkom",
-    "pick language": "Kies de taal van uw voorkeur en druk dan op"
+    "pick language": "Kies de taal met uw voorkeur"
   },
   "Preferences": {
-    "tab": "Voorkeuren",
-    "preferences": "voorkeuren",
+    "tab": "Ingrediënten",
+    "preferences": "ingrediënten",
     "allergies": {
       "lactose": "lactose",
       "peanuts": "pinda's",
@@ -20,27 +20,33 @@
     },
     "skip": "overslaan",
     "review": "bekijken",
-    "pick preferences": "Kies uw voorkeuren en druk dan op",
-    "confirm by": "bekijk uw voorkeuren en druk dan op",
+    "pick preferences": "Kies de ingrediënten welke u wil vermijden",
+    "confirm by": "bevestig uw ingrediënten en druk op",
     "change": "wijzigen",
-    "no preferences": "u heeft geen voorkeuren geselecteerd",
-    "i do want": "Ik wil",
-    "i do": "ik wil",
-    "want": "",
+    "no preferences": "u heeft geen ingrediënten geselecteerd",
+    "i do want": "Ik mag",
+    "i do": "ik mag",
+    "want": "wil",
     "not": "geen"
   },
   "Scan": {
     "tab": "Scan",
+    "pointed at": "houd de camera op de barcode gericht",
     "Feedback": {
       "success": "succes",
       "failure": "mislukt",
       "can eat": "Je kan dit eten",
       "cannot eat": "Je kan dit niet eten",
-      "product contains": "dit product bevat de volgende ingredienten."
+      "product contains": "product bevat:",
+      "unknown product": "onbekend product"
     },
     "permission": {
-      "title": "Permissie om camera te gebruiken",
-      "message": "We hebben uw permissie nodig om uw camera te gebruiken"
+      "title": "Toestemming om camera te gebruiken",
+      "message": "We hebben uw toestemming nodig om uw camera te gebruiken"
+    },
+    "flashlight": {
+      "on": "zet zaklamp aan",
+      "off": "zet zaklamp uit"
     }
   },
   "Settings": {

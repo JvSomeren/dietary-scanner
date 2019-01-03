@@ -31,6 +31,19 @@ class Feedback extends Component<Props> {
     );
   };
 
+  renderUnknownFeedback = () => {
+    return (
+      <View style={[ base.container, base.stretch ]}>
+        <View style={[ base.flexCenter, base.stretch, { backgroundColor: 'gray', color: 'white' } ]}>
+          {/*<RNEText h1 style={base.textCenter}>{i18n.t( 'Scan.Feedback.success' ).capitalize()}!</RNEText>*/}
+          {/*<Divider style={base.divider} />*/}
+            <RNEText h2
+                     style={[ base.textCenter, { color: 'white' } ]}>{i18n.t( 'Scan.Feedback.unknown product' ).capitalize()}!</RNEText>
+        </View>
+      </View>
+    );
+  };
+
   renderPositiveFeedback = () => {
     return (
       <View style={[ base.container, base.stretch ]}>
@@ -67,7 +80,9 @@ class Feedback extends Component<Props> {
     if ( this.props.loading )
       return (<Text>{i18n.t( 'loading' ).capitalize()}</Text>);
     else {
-      if ( this.props.canEat )
+      if ( this.props.error )
+        return this.renderUnknownFeedback();
+      else if ( this.props.canEat )
         return this.renderPositiveFeedback();
       else
         return this.renderNegativeFeedback();
@@ -90,7 +105,8 @@ const mapStateToProps = state => {
     product: state.scan.product,
     dietaryPreferences: state.preferences.dietaryPreferences,
     canEat: state.scan.canEat,
-    unwantedIngredients: state.scan.unwantedIngredients
+    unwantedIngredients: state.scan.unwantedIngredients,
+    error: state.scan.error
   }
 };
 

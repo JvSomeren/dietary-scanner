@@ -6,7 +6,7 @@
   },
   "Welcome": {
     "welcome": "Welcome",
-    "pick language": "please pick you preferred language and then press"
+    "pick language": "choose your preferred language"
   },
   "Preferences": {
     "tab": "Ingredients",
@@ -20,7 +20,7 @@
     },
     "skip": "skip",
     "review": "review",
-    "pick preferences": "Please select your unwanted ingredients and then press",
+    "pick preferences": "choose ingredients you want to avoid",
     "confirm by": "confirm your ingredients by pressing",
     "change": "change",
     "no preferences": "you have not selected any ingredients",
@@ -31,12 +31,14 @@
   },
   "Scan": {
     "tab": "Scan",
+    "pointed at": "keep the camera pointed at the barcode",
     "Feedback": {
       "success": "success",
       "failure": "failure",
       "can eat": "You can eat this",
       "cannot eat": "You cannot eat this",
-      "product contains": "product contains:"
+      "product contains": "product contains:",
+      "unknown product": "unknown product"
     },
     "permission": {
       "title": "Permission to use camera",

@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
   outlineOuter: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
+    justifyContent: 'flex-start',
   },
   containerInner: {
     flex: 2,
@@ -66,6 +67,11 @@ const styles = StyleSheet.create({
   scanLine: {
     backgroundColor: 'red',
     height: 1
+  },
+  pointedAt: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 18
   }
 });
 

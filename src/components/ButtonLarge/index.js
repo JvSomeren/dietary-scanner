@@ -157,12 +157,12 @@ const styles = StyleSheet.create({
       ios: {
         // iOS blue from https://developer.apple.com/ios/human-interface-guidelines/visual-design/color/
         color: '#007AFF',
-        fontSize: 22,
+        fontSize: 24,
       },
       android: {
         color: 'white',
         fontWeight: '500',
-        fontSize: 22
+        fontSize: 24
       },
     }),
   },
