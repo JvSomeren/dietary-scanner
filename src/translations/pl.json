@@ -31,6 +31,7 @@
   },
   "Scan": {
     "tab": "Skanuj",
+    "pointed at": "Trzymaj ekran nad kodem kresowym",
     "Feedback": {
       "success": "sukces",
       "failure": "nie powiodło się",
@@ -44,8 +45,8 @@
       "message": "Potrzebna zgoda na użycie kamery"
     },
     "flashlight": {
-      "on": "wyłącz światło",
-      "off": "włącz światło"
+      "on": "wyłącz lampę",
+      "off": "włącz lampę"
     }
   },
   "Settings": {

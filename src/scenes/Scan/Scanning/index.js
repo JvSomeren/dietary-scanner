@@ -124,6 +124,7 @@ class Scanning extends Component<Props> {
           </View>
 
           <View style={styles.outlineOuter}>
+            <Text style={styles.pointedAt}>{ i18n.t( `Scan.pointed at` ).capitalize() }</Text>
           </View>
         </RNCamera>
         }
