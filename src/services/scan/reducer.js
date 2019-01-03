@@ -2,6 +2,7 @@ import { scanType } from "./types";
 
 const INITIAL_STATE = {
   loading: false,
+  error: null,
   product: {},
   canEat: true,
   unwantedIngredients: []
@@ -14,7 +15,7 @@ export const scanReducer = ( state = INITIAL_STATE, action ) => {
       return { ...state, loading: true };
 
     case scanType.GET_PRODUCT_SUCCESS:
-      return { ...state, product: action.payload.product, loading: false };
+      return { ...state, product: action.payload.product, error: null, loading: false };
 
     case scanType.CHECK_CAN_EAT_SUCCESS:
       return { ...state, ...action.payload, loading: false };

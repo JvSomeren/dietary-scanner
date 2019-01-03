@@ -36,7 +36,8 @@
       "failure": "mislukt",
       "can eat": "Je kan dit eten",
       "cannot eat": "Je kan dit niet eten",
-      "product contains": "product bevat:"
+      "product contains": "product bevat:",
+      "unknown product": "onbekend product"
     },
     "permission": {
       "title": "Toestemming om camera te gebruiken",

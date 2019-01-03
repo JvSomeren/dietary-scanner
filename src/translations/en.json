@@ -36,7 +36,8 @@
       "failure": "failure",
       "can eat": "You can eat this",
       "cannot eat": "You cannot eat this",
-      "product contains": "product contains:"
+      "product contains": "product contains:",
+      "unknown product": "unknown product"
     },
     "permission": {
       "title": "Permission to use camera",

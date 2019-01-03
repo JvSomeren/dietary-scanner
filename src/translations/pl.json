@@ -36,7 +36,8 @@
       "failure": "nie powiodło się",
       "can eat": "Możesz to jeść",
       "cannot eat": "Unikaj tego produktu",
-      "product contains": "Zawiera:"
+      "product contains": "Zawiera:",
+      "unknown product": "Nieznany produkt"
     },
     "permission": {
       "title": "Zgoda na użycie kamery",
